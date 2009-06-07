@@ -3,11 +3,11 @@
 
 require mono
 
-SUMMARY="FIXME"
+SUMMARY="A .NET library for reading and writing tagging information stored in popular audio formats"
 HOMEPAGE="http://developer.novell.com/wiki/index.php/TagLib_Sharp"
 DOWNLOADS="http://download.banshee-project.org/${PN}/${PV}/${PNV}.tar.bz2"
 
-LICENCES="FIXME"
+LICENCES="LGPL-2.1"
 SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS=""
