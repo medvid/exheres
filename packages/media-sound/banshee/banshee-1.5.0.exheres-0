@@ -21,7 +21,6 @@ DEFAULT_SRC_CONFIGURE_PARAMS=(
     --with-vendor-build-id="Exherbo/1-${PV}"
 )
 
-# gstreamer? build/depend? other pkgconfig?
 DEPENDENCIES="
     build+run:
         dev-dotnet/taglib-sharp[>=2.0.3.2]
