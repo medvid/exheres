@@ -3,11 +3,11 @@
 
 require mono
 
-SUMMARY="FIXME"
+SUMMARY="A .NET library for Zero Configuration Networking"
 HOMEPAGE="http://www.mono-project.com/Mono.Zeroconf"
 DOWNLOADS="http://download.banshee-project.org/${PN}/${PNV}.tar.bz2"
 
-LICENCES="FIXME"
+LICENCES="MIT"
 SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS=""
