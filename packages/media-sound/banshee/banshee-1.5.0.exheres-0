@@ -4,11 +4,11 @@
 require mono
 
 MY_PNV="${PN}-1-${PV}"
-SUMMARY="FIXME"
+SUMMARY="A music player built on top of gtk# and gstreamer"
 HOMEPAGE="http://banshee-project.org/"
 DOWNLOADS="http://download.banshee-project.org/banshee/unstable/${PV}/${MY_PNV}.tar.bz2"
 
-LICENCES="FIXME"
+LICENCES="MIT"
 SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS=""
