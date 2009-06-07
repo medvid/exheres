@@ -1,0 +1,22 @@
+# Copyright 2009 Elias Pipping <elias@pipping.org>
+# Distributed under the terms of the GNU General Public License v2
+
+require mono
+
+SUMMARY="FIXME"
+HOMEPAGE="http://www.mono-project.com/Mono.Zeroconf"
+DOWNLOADS="http://download.banshee-project.org/${PN}/${PNV}.tar.bz2"
+
+LICENCES="FIXME"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+MAKEOPTS+=" -j1"
+
+DEPENDENCIES="
+    build+run:
+        dev-lang/mono[>=2.0]
+    build:
+        dev-util/pkg-config
+"
