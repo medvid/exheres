@@ -39,4 +39,6 @@ DEPENDENCIES="
         dev-util/pkg-config
     post,suggested:
         media-plugins/gst-plugins-bad
+        media-plugins/gst-plugins-good
+        media-plugins/gst-plugins-ugly
 "
