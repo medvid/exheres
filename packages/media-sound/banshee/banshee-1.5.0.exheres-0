@@ -37,7 +37,7 @@ DEPENDENCIES="
         media-plugins/gst-plugins-base[>=0.10.3]
     build:
         dev-util/pkg-config
-    post,suggested:
+    suggestion:
         media-plugins/gst-plugins-bad
         media-plugins/gst-plugins-good
         media-plugins/gst-plugins-ugly
