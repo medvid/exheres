@@ -1,0 +1,36 @@
+# Copyright 2010 Jonathan Dahan <jedahan@gmail.com>
+# Distrivuted under the terms of the GNU General Public License v2
+
+require gnome-2 python
+
+SUMMARY="D-Feet is a powerful D-Bus debugger"
+HOMEPAGE="https://fedorahosted.org/d-feet/"
+DOWNLOADS="http://johnp.fedorapeople.org/downloads/d-feet/${PNV}.tar.gz"
+
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS="gnome"
+
+DEPENDENCIES="
+  run:
+    dev-lang/python[>=2.5]
+    dev-python/dbus-python[>=0.82.3]
+    dev-python/setuptools
+    gnome-bindings/pygtk
+    gnome? ( gnome-desktop/libwnck )
+    sys-apps/dbus[>=1.0]
+"
+
+src_configure() {
+    :
+}
+
+src_compile() {
+    :
+}
+
+src_install() {
+    edo python setup.py install --prefix /usr --root ${IMAGE}
+}
+
