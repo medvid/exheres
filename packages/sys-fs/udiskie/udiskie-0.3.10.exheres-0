@@ -1,0 +1,40 @@
+# Copyright 2011 Johannes Nixdorf <mixi@shadowice.org>
+# Distributed under the terms of the GNU General Public License v2
+
+require distutils
+
+SUMMARY="An automatic disk mounting service using udisks."
+HOMEPAGE="https://bitbucket.org/byronclark/${PN}"
+DOWNLOADS="https://bitbucket.org/byronclark/${PN}/downloads/${PNV}.tar.gz"
+
+LICENCES="MIT"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS="doc"
+
+DEPENDENCIES="
+    build:
+        doc? ( app-doc/asciidoc )
+    build+run:
+        dev-python/dbus-python
+        dev-python/notify-python
+        gnome-bindings/pygobject:2
+"
+
+BUGS_TO="mixi@shadowice.org"
+
+src_compile() {
+    distutils_src_compile
+
+    if option doc; then
+        edo cd doc
+        emake
+    fi
+}
+
+src_install() {
+    distutils_src_install
+
+    option doc && doman doc/${PN}.8
+}
+
