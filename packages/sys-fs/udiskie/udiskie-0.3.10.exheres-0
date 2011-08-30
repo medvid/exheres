@@ -15,10 +15,11 @@ MYOPTIONS="doc"
 DEPENDENCIES="
     build:
         doc? ( app-doc/asciidoc )
-    build+run:
+    run:
         dev-python/dbus-python
         dev-python/notify-python
         gnome-bindings/pygobject:2
+        sys-apps/udisks
 "
 
 BUGS_TO="mixi@shadowice.org"
