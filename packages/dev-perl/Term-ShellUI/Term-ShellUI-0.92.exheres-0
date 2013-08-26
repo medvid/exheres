@@ -8,3 +8,4 @@ SUMMARY="A fully-featured shell-like command line environment"
 SLOT=0
 PLATFORMS="~amd64 ~x86"
 MYOPTIONS=""
+
