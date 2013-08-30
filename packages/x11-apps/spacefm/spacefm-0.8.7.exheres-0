@@ -1,0 +1,38 @@
+# Copyright 2013 Ray Griffin <rorgoroth@gmail.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require sourceforge
+
+SUMMARY="multi-panel tabbed file manager"
+
+HOMEPAGE="http://ignorantguru.github.io/spacefm/"
+DOWNLOADS="mirror://sourceforge/spacefm/${PNV}.tar.xz"
+
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64"
+
+DEPENDENCIES="
+    build:
+        dev-util/intltool
+        sys-devel/gettext
+        virtual/pkg-config
+    build+run:
+        dev-libs/glib:2
+        dev-util/desktop-file-utils
+        sys-apps/udisks
+        sys-apps/systemd
+        x11-misc/shared-mime-info
+        x11-libs/libX11
+        x11-libs/gtk+:2 
+    suggestion:
+        app-admin/sudo
+"
+
+DEFAULT_SRC_CONFIGURE_PARAMS=(
+    --enable-largefile
+    --disable-desktop-integration
+    # Use gtk2 only, gtk3 is buggy/experimental.
+    --with-gtk2
+)
+
