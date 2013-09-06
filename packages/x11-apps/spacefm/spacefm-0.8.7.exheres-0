@@ -26,8 +26,8 @@ DEPENDENCIES="
         x11-misc/shared-mime-info
     suggestion:
         app-admin/sudo      [[ description = [ Used to perform root actions ] ]]
-        sys-apps/udisks     [[ description = [ Auto drive mounting ] ]]
-        xfce-extra/tumbler  [[ description = [ Show image-only thumbnails ] ]]
+        sys-apps/udisks     [[ description = [ Auto drive mounting          ] ]]
+        xfce-extra/tumbler  [[ description = [ Show image-only thumbnails   ] ]]
 "
 
 DEFAULT_SRC_CONFIGURE_PARAMS=(
