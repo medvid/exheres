@@ -1,12 +1,11 @@
 # Copyright 2013 Ray Griffin <rorgoroth@gmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
-require sourceforge
+require sourceforge [ suffix=tar.xz ]
 
 SUMMARY="multi-panel tabbed file manager"
 
 HOMEPAGE="http://ignorantguru.github.io/spacefm/"
-DOWNLOADS="mirror://sourceforge/spacefm/${PNV}.tar.xz"
 
 LICENCES="GPL-3"
 SLOT="0"
@@ -26,7 +25,7 @@ DEPENDENCIES="
         x11-misc/shared-mime-info
     suggestion:
         app-admin/sudo      [[ description = [ Used to perform root actions ] ]]
-        sys-apps/udisks     [[ description = [ Auto drive mounting          ] ]]
+        sys-apps/udisks:2     [[ description = [ Auto drive mounting          ] ]]
         xfce-extra/tumbler  [[ description = [ Show image-only thumbnails   ] ]]
 "
 
