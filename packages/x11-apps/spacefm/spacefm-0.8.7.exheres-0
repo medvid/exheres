@@ -25,7 +25,7 @@ DEPENDENCIES="
         x11-misc/shared-mime-info
     suggestion:
         app-admin/sudo      [[ description = [ Used to perform root actions ] ]]
-        sys-apps/udisks:2     [[ description = [ Auto drive mounting          ] ]]
+        sys-apps/udisks:2   [[ description = [ Auto drive mounting          ] ]]
         xfce-extra/tumbler  [[ description = [ Show image-only thumbnails   ] ]]
 "
 
