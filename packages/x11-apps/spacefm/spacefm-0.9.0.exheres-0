@@ -10,6 +10,7 @@ HOMEPAGE="http://ignorantguru.github.io/spacefm/"
 LICENCES="GPL-3"
 SLOT="0"
 PLATFORMS="~amd64"
+MYOPTIONS="gtk3"
 
 DEPENDENCIES="
     build:
@@ -20,13 +21,13 @@ DEPENDENCIES="
         dev-libs/glib:2
         dev-util/desktop-file-utils
         sys-apps/systemd
-        x11-libs/gtk+:3
         x11-libs/libX11
         x11-misc/shared-mime-info
+        gtk3? ( x11-libs/gtk+:3 )
+        !gtk3? ( x11-libs/gtk+:2 )
     suggestion:
         app-admin/sudo      [[ description = [ Used to perform root actions ] ]]
         sys-apps/udisks:2   [[ description = [ Auto drive mounting          ] ]]
-        xfce-extra/tumbler  [[ description = [ Show image-only thumbnails   ] ]]
 "
 
 DEFAULT_SRC_CONFIGURE_PARAMS=(
@@ -35,6 +36,6 @@ DEFAULT_SRC_CONFIGURE_PARAMS=(
     --disable-desktop-integration
     --disable-hal
     --disable-pixmaps
-    --with-gtk3
 )
+DEFAULT_SRC_CONFIGURE_OPTION_WITHS=( gtk3 )
 
