@@ -35,7 +35,6 @@ DEFAULT_SRC_CONFIGURE_PARAMS=(
     --disable-desktop-integration
     --disable-hal
     --disable-pixmaps
-    # Use gtk2 only, gtk3 is buggy/experimental.
     --with-gtk3
 )
 
