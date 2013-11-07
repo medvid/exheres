@@ -24,7 +24,7 @@ DEPENDENCIES="
         virtual/pkg-config
     build+run:
         dev-libs/glib
-        sys-apps/util-linux
         sys-apps/systemd
+        sys-apps/util-linux
 "
 
