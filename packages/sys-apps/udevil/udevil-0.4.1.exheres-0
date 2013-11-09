@@ -11,7 +11,7 @@ Be sure to be a member of the lugdev group.
 "
 HOMEPAGE="http://ignorantguru.github.io/udevil/"
 
-DOWNLOADS="https://github.com/IgnorantGuru/udevil/raw/pkg/0.4.1/udevil-0.4.1.tar.xz"
+DOWNLOADS="https://github.com/IgnorantGuru/udevil/raw/pkg/${PV}/${PNV}.tar.xz"
 
 LICENCES="GPL-3"
 SLOT="0"
