@@ -1,11 +1,9 @@
 # Copyright 2013 Ray Griffin <rorgoroth@gmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
-require sourceforge [ suffix=tar.xz ]
-
 SUMMARY="multi-panel tabbed file manager"
-
 HOMEPAGE="http://ignorantguru.github.io/spacefm/"
+DOWNLOADS="https://github.com/IgnorantGuru/spacefm/raw/pkg/${PV}/${PNV}.tar.xz"
 
 LICENCES="GPL-3"
 SLOT="0"
