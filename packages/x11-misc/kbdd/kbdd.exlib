@@ -1,0 +1,32 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'kbdd-0.7.ebuild' from Gentoo, which is:
+#     Copyright 1999-2012 Gentoo Foundation
+
+require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
+require github [ user=qnikst ]
+
+SUMMARY="Very simple layout switcher"
+
+LICENCES="GPL-2"
+SLOT="0"
+MYOPTIONS="dbus"
+
+DEPENDENCIES="
+    build:
+        virtual/pkg-config
+    build+run:
+        dev-libs/glib
+        x11-libs/libX11
+        dbus? (
+            sys-apps/dbus
+            dev-libs/dbus-glib[>=0.86]
+        )
+"
+
+src_prepare() {
+    eautoreconf
+    econf \
+       $(option_enable dbus)
+}
+
