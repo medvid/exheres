@@ -1,0 +1,28 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'simpleswitcher-9999.ebuild' from Gentoo, which is:
+#     Copyright 1999-2012 Gentoo Foundation
+
+require github [ user=seanpringle ]
+
+SUMMARY="Lightweight EWMH window switcher with features and looks of dmenu"
+
+LICENCES="MIT"
+SLOT="0"
+
+DEPENDENCIES="
+    build:
+        virtual/pkg-config
+    build+run:
+        x11-libs/libX11
+        x11-libs/libXft
+        x11-libs/libXinerama
+        x11-libs/libXres
+"
+
+src_install() {
+    default
+    doman ${PN}.1
+    dodoc README.md
+}
+
