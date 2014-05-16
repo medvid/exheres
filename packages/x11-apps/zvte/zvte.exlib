@@ -1,0 +1,22 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=medvid ]
+
+SUMMARY="Simple VTE-based terminal"
+
+LICENCES="GPL-2"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        virtual/pkg-config
+    build+run:
+        x11-libs/gtk+:3
+        dev-libs/vte:3.0
+"
+
+DEFAULT_SRC_INSTALL_PARAMS=(
+    PREFIX=/usr
+)
