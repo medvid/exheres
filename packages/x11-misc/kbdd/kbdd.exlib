@@ -24,9 +24,10 @@ DEPENDENCIES="
         )
 "
 
+DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=( dbus )
+
 src_prepare() {
+    default
     eautoreconf
-    econf \
-       $(option_enable dbus)
 }
 
