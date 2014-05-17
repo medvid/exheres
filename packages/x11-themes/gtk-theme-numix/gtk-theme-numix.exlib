@@ -1,0 +1,21 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=shimmerproject pn='Numix' tag=v${PV} ]
+
+SUMMARY="A modern flat theme with a combination of light and dark elements"
+LICENCES="GPL-3"
+SLOT="0"
+
+DEPENDENCIES="
+    run:
+        x11-themes/gtk-engines-murrine
+"
+
+src_install() {
+    dodoc CREDITS README.md
+
+    insinto /usr/share/themes/Numix
+    doins -r */ index.theme
+}
+
