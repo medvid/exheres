@@ -1,0 +1,12 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
+require github [ user=thoughtbot tag=v${PV} ]
+
+SUMMARY="A management suite for dotfiles"
+DOWNLOADS="https://thoughtbot.github.io/${PN}/dist/${PNV}.tar.gz"
+
+LICENCES="BSD"
+SLOT="0"
+

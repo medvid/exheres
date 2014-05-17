@@ -1,0 +1,17 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require rcm
+
+PLATFORMS="~amd64"
+
+DEPENDENCIES="
+    run:
+        dev-ruby/mustache [[ description = [ Generate contributors list ] ]]
+"
+
+src_prepare() {
+    default
+    eautoreconf
+}
+
