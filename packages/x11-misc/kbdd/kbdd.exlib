@@ -4,7 +4,7 @@
 #     Copyright 1999-2012 Gentoo Foundation
 
 require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
-require github [ user=qnikst ]
+require github [ user=qnikst tag=v${PV} ]
 
 SUMMARY="Very simple layout switcher"
 
