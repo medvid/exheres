@@ -23,8 +23,6 @@ DEPENDENCIES="
 
 RESTRICT="test"
 
-DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}"/${PN}-0.9.5.2-stop_cleaning_up.patch )
-
 src_install() {
     local DOCS="CHANGELOG README TODO TRANSLATORS"
     distutils_src_install
