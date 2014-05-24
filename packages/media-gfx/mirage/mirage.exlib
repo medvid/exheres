@@ -5,9 +5,15 @@
 
 require distutils [ python_dep=2.7 ]
 
+if ever is_scm ; then
+    SCM_REPOSITORY=svn://svn.berlios.de/mirageiv
+    require scm-svn
+else
+    DOWNLOADS="mirror://berlios/mirageiv/${PNV}.tar.bz2"
+fi
+
 SUMMARY="A fast and simple image viewer based on python and GTK+"
 HOMEPAGE="http://mirageiv.berlios.de/"
-DOWNLOADS="mirror://berlios/mirageiv/${PNV}.tar.bz2"
 
 LICENCES="GPL-3"
 SLOT="0"
