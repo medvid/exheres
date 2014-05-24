@@ -1,0 +1,39 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'mirage-0.9.5.2.ebuild' from Gentoo, which is:
+#     Copyright 1999-2013 Gentoo Foundation
+
+require distutils [ python_dep=2.7 ]
+
+SUMMARY="A fast and simple image viewer based on python and GTK+"
+HOMEPAGE="http://mirageiv.berlios.de/"
+DOWNLOADS="mirror://berlios/mirageiv/${PNV}.tar.bz2"
+
+LICENCES="GPL-3"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        sys-devel/gettext
+    build+run:
+        x11-libs/libX11
+        gnome-bindings/pygtk:2[>=2.12]
+"
+
+RESTRICT="test"
+
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}"/${PN}-0.9.5.2-stop_cleaning_up.patch )
+
+src_install() {
+    local DOCS="CHANGELOG README TODO TRANSLATORS"
+    distutils_src_install
+
+    rm -f "${IMAGE}"/usr/share/mirage/COPYING
+
+    local x
+    for x in ${DOCS}; do
+        rm -f "${IMAGE}"/usr/share/mirage/${x}
+    done
+}
+
