@@ -1,0 +1,25 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'wiznote-9999.ebuild' from Gentoo, which is:
+#     Copyright 1999-2012 Gentoo Foundation
+
+require github [ user=WizTeam pn=WizQTClient tag=v${PV} ]
+require cmake [ api=2 ]
+
+SUMMARY="Cross-platform cloud based note-taking client"
+DESCRIPTION="
+WizNote lets you capture anything you might to remember: create text notes,
+clip content from the web, snap photos and have all of these notes avaliable
+you on any device.
+"
+HOMEPAGE="http://www.wiz.cn/index.html"
+
+LICENCES="GPL-3"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        x11-libs/qt
+"
+
