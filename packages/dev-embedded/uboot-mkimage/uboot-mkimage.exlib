@@ -1,0 +1,47 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'u-boot-tools-2014.01.ebuild' from Gentoo, which is:
+#     Copyright 1999-2014 Gentoo Foundation
+
+if ever is_scm ; then
+    SCM_REPOSITORY="git://git.denx.de/u-boot.git"
+    require scm-git
+else
+    DOWNLOADS="ftp://ftp.denx.de/pub/u-boot/u-boot-${PV}.tar.bz2"
+fi
+
+SUMMARY="U-Boot mkimage utility"
+DESCRIPTION="
+Encapsulates a compressed uImage Linux kernel image with header information,
+CRC32 checksum, etc, for use with the U-Boot bootloader
+"
+HOMEPAGE="http://www.denx.de/wiki/U-Boot/WebHome"
+
+LICENCES="GPL-2"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES=""
+
+RESTRICT="test"
+
+# U-Boot requires board to be configured
+src_configure() {
+    make coreboot-x86_config
+}
+
+src_compile() {
+    emake \
+        HOSTSTRIP=: \
+        HOSTCC="${CC}" \
+        HOSTCFLAGS="${CFLAGS} ${CPPFLAGS}"' $(HOSTCPPFLAGS)' \
+        HOSTLDFLAGS="${LDFLAGS}" \
+        CC="${CC} -m32" \
+        tools
+}
+
+src_install() {
+    dobin tools/mkimage
+    doman doc/mkimage.1
+}
+
