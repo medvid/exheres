@@ -1,4 +1,4 @@
-# Copyright 2013-2015 Ray Griffin  <rorgoroth@openmailbox.org>
+# Copyright 2013-2015 Ray Griffin  <rorgoroth-dev@outlook.com>
 # Distributed under the terms of the GNU General Public License v2
 
 SUMMARY="A simple udisks alternative."
@@ -16,7 +16,7 @@ SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS=""
 
-BUGS_TO="rorgoroth@openmailbox.org"
+BUGS_TO="rorgoroth-dev@outlook.com"
 
 DEPENDENCIES="
     build:
