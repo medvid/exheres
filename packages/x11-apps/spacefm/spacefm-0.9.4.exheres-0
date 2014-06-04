@@ -10,6 +10,8 @@ SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS="gtk3 [[ description = [ Build GTK3 user interface ] ]]"
 
+BUGS_TO="rorgoroth@gmail.com"
+
 DEPENDENCIES="
     build:
         dev-util/intltool
