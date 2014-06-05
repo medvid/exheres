@@ -14,6 +14,7 @@ DOWNLOADS="https://github.com/IgnorantGuru/udevil/raw/pkg/${PV}/${PNV}.tar.xz"
 LICENCES="GPL-3"
 SLOT="0"
 PLATFORMS="~amd64"
+MYOPTIONS=""
 
 DEPENDENCIES="
     build:
@@ -21,7 +22,7 @@ DEPENDENCIES="
         sys-devel/gettext
         virtual/pkg-config
     build+run:
-        dev-libs/glib
+        dev-libs/glib:2
         sys-apps/systemd
         sys-apps/util-linux
 "
