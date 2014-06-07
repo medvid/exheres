@@ -4,7 +4,7 @@
 SUMMARY="A simple udisks alternative."
 DESCRIPTION="
 udevil is a command line Linux program which mounts and unmounts removable
-devices without a password, shows device info, and monitors device changes. 
+devices without a password, shows device info, and monitors device changes.
 Be sure to be a member of the plugdev group.
 "
 
