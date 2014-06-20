@@ -24,8 +24,8 @@ DEPENDENCIES="
         gtk3? ( x11-libs/gtk+:3 )
         !gtk3? ( x11-libs/gtk+:2 )
     suggestion:
-        app-admin/sudo      [[ description = [ Used to perform root actions     ] ]]
-        sys-apps/udevil	    [[ description = [ Drive mounting                   ] ]]
+        app-admin/sudo  [[ description = [ Used to perform root actions ] ]]
+        sys-apps/udevil [[ description = [ Drive mounting               ] ]]
 "
 
 DEFAULT_SRC_CONFIGURE_PARAMS=(
