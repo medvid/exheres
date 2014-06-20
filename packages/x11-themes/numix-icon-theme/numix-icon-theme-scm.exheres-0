@@ -1,0 +1,29 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=numixproject ] gtk-icon-cache
+
+SUMMARY="Official icon theme from the Numix project"
+DESCRIPTION="
+Numix icon theme is heavily inspired by, and based upon parts of the
+Elementary, Humanity and Gnome icon themes.
+"
+HOMEPAGE="http://numixproject.org/"
+DOWNLOADS=""
+
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+
+MYOPTIONS=""
+
+DEPENDENCIES="
+    run:
+        gnome-desktop/gnome-icon-theme
+"
+
+src_install() {
+    insinto /usr/share/icons
+    doins -r Numix
+}
+
