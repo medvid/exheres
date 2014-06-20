@@ -3,7 +3,7 @@
 
 require wiznote
 
-PLATFORMS="~amd64"
+PLATFORMS="~amd64 ~x86"
 
 # Don't want to bother upstream with $LIB_SUFFIX
 src_install() {
