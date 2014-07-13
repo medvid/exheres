@@ -1,0 +1,33 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'kindlegen-2.9-r1.ebuild' from Gentoo, which is:
+#     Copyright 1999-2012 Gentoo Foundation
+
+SUMMARY="Amazon's converter into a Kindle Book"
+DESCRIPTION="
+KindleGen is a command line tool which enables publishers to work in
+an automated environment with a variety of source content including
+HTML, XHTML or EPUB. KindleGen converts this source content to a single
+file which supports both KF8 and Mobi formats enabling publishers to
+create great-looking books that work on all Kindle devices and apps.
+"
+HOMEPAGE="http://www.amazon.com/gp/feature.html?docId=1000765211"
+DOWNLOADS="http://kindlegen.s3.amazonaws.com/kindlegen_linux_2.6_i386_v${PV/./_}.tar.gz"
+
+LICENCES="KindleGen-EULA"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+"
+
+WORK=${WORKBASE}
+
+RESTRICT="strip"
+
+src_install() {
+    exeinto /usr/bin
+    doexe kindlegen
+    dodoc docs/english/*.*
+}
+
