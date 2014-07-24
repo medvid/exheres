@@ -3,15 +3,20 @@
 
 require rcm
 
+DOWNLOADS=""
+
 PLATFORMS="~amd64 ~x86"
 
 DEPENDENCIES="
-    run:
+    build:
         dev-ruby/mustache [[ description = [ Generate contributors list ] ]]
 "
 
+# cram is required
+RESTRICT=test
+
 src_prepare() {
     default
-    eautoreconf
+    LC_ALL=en_US.UTF-8 edo ./autogen.sh
 }
 
