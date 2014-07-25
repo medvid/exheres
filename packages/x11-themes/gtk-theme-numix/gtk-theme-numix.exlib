@@ -13,7 +13,7 @@ DEPENDENCIES="
 "
 
 src_install() {
-    dodoc CREDITS README.md
+    default
 
     insinto /usr/share/themes/Numix
     doins -r */ index.theme

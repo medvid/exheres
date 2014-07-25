@@ -23,9 +23,10 @@ DEPENDENCIES="
 "
 
 src_install() {
+    default
+
     insinto /usr/share/awesome/lib/vicious
     doins -r widgets helpers.lua init.lua
-    dodoc CHANGES README TODO
 
     if option contrib; then
         insinto /usr/share/awesome/lib/vicious/contrib

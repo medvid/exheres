@@ -23,6 +23,5 @@ DEPENDENCIES="
 src_install() {
     default
     doman ${PN}.1
-    dodoc README.md
 }
 
