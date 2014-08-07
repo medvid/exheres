@@ -16,10 +16,7 @@ LICENCES="GPL-2"
 SLOT="0"
 MYOPTIONS="examples vim-syntax"
 
-DEPENDENCIES="
-    build:
-    build+run:
-"
+DEPENDENCIES=""
 
 src_install() {
     distutils_src_install

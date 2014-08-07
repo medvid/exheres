@@ -13,8 +13,8 @@ DEPENDENCIES="
     build:
         virtual/pkg-config
     build+run:
-        x11-libs/gtk+:3
         dev-libs/vte:3.0
+        x11-libs/gtk+:3
 "
 
 DEFAULT_SRC_INSTALL_PARAMS=(
