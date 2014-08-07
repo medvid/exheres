@@ -19,8 +19,8 @@ DEPENDENCIES="
         dev-libs/glib
         x11-libs/libX11
         dbus? (
-            sys-apps/dbus
             dev-libs/dbus-glib[>=0.86]
+            sys-apps/dbus
         )
 "
 
