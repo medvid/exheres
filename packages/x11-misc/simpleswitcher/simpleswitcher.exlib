@@ -9,6 +9,7 @@ SUMMARY="Lightweight EWMH window switcher with features and looks of dmenu"
 
 LICENCES="MIT"
 SLOT="0"
+MYOPTIONS=""
 
 DEPENDENCIES="
     build:

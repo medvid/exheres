@@ -4,8 +4,10 @@
 require github [ user=shimmerproject pn='Numix' tag=v${PV} ]
 
 SUMMARY="A modern flat theme with a combination of light and dark elements"
+
 LICENCES="GPL-3"
 SLOT="0"
+MYOPTIONS=""
 
 DEPENDENCIES="
     run:

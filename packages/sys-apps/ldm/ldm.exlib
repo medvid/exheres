@@ -17,7 +17,6 @@ HOMEPAGE="https://github.com/LemonBoy/${PN}"
 
 LICENCES="MIT"
 SLOT="0"
-
 MYOPTIONS=""
 
 DEPENDENCIES="

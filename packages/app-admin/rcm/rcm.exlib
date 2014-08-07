@@ -9,4 +9,5 @@ DOWNLOADS="https://thoughtbot.github.io/${PN}/dist/${PNV}.tar.gz"
 
 LICENCES="BSD"
 SLOT="0"
+MYOPTIONS=""
 
