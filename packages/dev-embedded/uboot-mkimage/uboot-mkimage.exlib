@@ -3,11 +3,16 @@
 # Based in part upon 'u-boot-tools-2014.01.ebuild' from Gentoo, which is:
 #     Copyright 1999-2014 Gentoo Foundation
 
+MY_PN="u-boot"
+MY_PNV="${MY_PN}-${PV}"
+
 if ever is_scm ; then
-    SCM_REPOSITORY="git://git.denx.de/u-boot.git"
+    SCM_REPOSITORY="git://git.denx.de/${MY_PN}.git"
+    SCM_CHECKOUT_TO="${MY_PN}"
     require scm-git
 else
-    DOWNLOADS="ftp://ftp.denx.de/pub/u-boot/u-boot-${PV}.tar.bz2"
+    DOWNLOADS="ftp://ftp.denx.de/pub/u-boot/${MY_PNV}.tar.bz2"
+    WORK="${WORKBASE}/${MY_PNV}"
 fi
 
 SUMMARY="U-Boot mkimage utility"
