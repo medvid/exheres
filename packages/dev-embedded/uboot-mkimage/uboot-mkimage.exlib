@@ -30,9 +30,12 @@ DEPENDENCIES=""
 
 RESTRICT="test"
 
-# U-Boot requires board to be configured
-src_configure() {
-    make coreboot-x86_config
+src_prepare() {
+    # tools-only target is broken again after 5114879
+    if ever is_scm ; then
+        mkdir -p include/config
+        touch include/config/auto.conf
+    fi
 }
 
 src_compile() {
@@ -41,8 +44,7 @@ src_compile() {
         HOSTCC="${CC}" \
         HOSTCFLAGS="${CFLAGS} ${CPPFLAGS}"' $(HOSTCPPFLAGS)' \
         HOSTLDFLAGS="${LDFLAGS}" \
-        CC="${CC} -m32" \
-        tools
+        tools-only
 }
 
 src_install() {
