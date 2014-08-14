@@ -7,7 +7,7 @@ require github [ user=thoughtbot tag=v${PV} ]
 SUMMARY="A management suite for dotfiles"
 DOWNLOADS="https://thoughtbot.github.io/${PN}/dist/${PNV}.tar.gz"
 
-LICENCES="BSD"
+LICENCES="BSD-3"
 SLOT="0"
 MYOPTIONS=""
 
