@@ -7,7 +7,7 @@ DOWNLOADS=""
 
 PLATFORMS="~amd64 ~x86"
 
-DEPENDENCIES="
+DEPENDENCIES+="
     build:
         dev-ruby/mustache [[ description = [ Generate contributors list ] ]]
     test:
