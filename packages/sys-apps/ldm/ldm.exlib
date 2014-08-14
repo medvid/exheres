@@ -24,9 +24,9 @@ DEPENDENCIES="
         sys-apps/systemd [[ note = [ udev ] ]]
 "
 
-src_install() {
-    make PREFIX="/usr" DESTDIR="${IMAGE}" SYSTEMDDIR="/usr/${LIBDIR}/systemd" install
-
-    dodoc README.pod LICENSE
-}
+DEFAULT_SRC_INSTALL_PARAMS=(
+    PREFIX="/usr"
+    SYSTEMDDIR="/usr/${LIBDIR}/systemd"
+    DESTDIR="${IMAGE}"
+)
 
