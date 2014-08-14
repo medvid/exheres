@@ -23,6 +23,7 @@ DEPENDENCIES="
 
 src_install() {
     default
+
     doman ${PN}.1
 }
 
