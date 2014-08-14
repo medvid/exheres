@@ -8,6 +8,6 @@ PLATFORMS="~amd64 ~x86"
 # Don't want to bother upstream with $LIB_SUFFIX
 src_install() {
     default
-    mv "${IMAGE}"/usr/{lib,${LIBDIR}}
+    edo mv "${IMAGE}"/usr/{lib,${LIBDIR}}
 }
 
