@@ -17,6 +17,8 @@ DEPENDENCIES="
 
 src_prepare() {
     default
+    # autocontrib script fails with LC_ALL=C:
+    # ./maint/autocontrib:33:in `split': invalid byte sequence in US-ASCII (ArgumentError)
     LC_ALL=en_US.UTF-8 edo ./autogen.sh
 }
 
