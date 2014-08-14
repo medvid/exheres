@@ -1,7 +1,7 @@
 # Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require setup-py [ import=distutils has_bin=true ]
+require setup-py [ import=distutils has_bin=true multibuild=false ]
 
 SUMMARY="Functional testing framework for command line applications"
 DESCRIPTION="
@@ -21,8 +21,8 @@ MYOPTIONS="
 
 DEPENDENCIES=""
 
-install_one_multibuild() {
-    setup-py_install_one_multibuild
+src_install() {
+    setup-py_src_install
 
     if option examples ; then
         dodoc -r examples
