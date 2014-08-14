@@ -27,17 +27,15 @@ DEPENDENCIES="
         gnome-bindings/pygtk:2[>=2.12]
 "
 
-RESTRICT="test"
-
 src_install() {
-    local DOCS="CHANGELOG README TODO TRANSLATORS"
     distutils_src_install
 
-    rm -f "${IMAGE}"/usr/share/mirage/COPYING
-
+    # These docs are installed to /usr/share/mirage for some reason
+    # Remove them (proper installation is handled by emagicdocs)
+    local DOCS="CHANGELOG COPYING README TODO TRANSLATORS"
     local x
     for x in ${DOCS}; do
-        rm -f "${IMAGE}"/usr/share/mirage/${x}
+        rm -f "${IMAGE}/usr/share/mirage/${x}"
     done
 }
 
