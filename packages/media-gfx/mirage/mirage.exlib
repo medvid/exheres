@@ -35,7 +35,7 @@ src_install() {
     local DOCS="CHANGELOG COPYING README TODO TRANSLATORS"
     local x
     for x in ${DOCS}; do
-        rm -f "${IMAGE}/usr/share/mirage/${x}"
+        edo rm -f "${IMAGE}/usr/share/mirage/${x}"
     done
 }
 
