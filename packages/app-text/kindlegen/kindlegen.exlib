@@ -20,9 +20,8 @@ MYOPTIONS=""
 
 DEPENDENCIES=""
 
+# badly formed tarball
 WORK=${WORKBASE}
-
-RESTRICT="strip"
 
 src_install() {
     exeinto /usr/bin
