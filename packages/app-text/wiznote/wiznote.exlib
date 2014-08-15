@@ -20,6 +20,6 @@ MYOPTIONS=""
 
 DEPENDENCIES="
     build+run:
-        x11-libs/qt
+        x11-libs/qt[webkit]
 "
 
