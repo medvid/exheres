@@ -15,6 +15,8 @@ else
     WORK="${WORKBASE}/${MY_PNV}"
 fi
 
+export_exlib_phases src_prepare src_compile src_install
+
 SUMMARY="U-Boot mkimage utility"
 DESCRIPTION="
 Encapsulates a compressed uImage Linux kernel image with header information,
@@ -30,7 +32,7 @@ DEPENDENCIES=""
 
 RESTRICT="test"
 
-src_prepare() {
+uboot-mkimage_src_prepare() {
     # tools-only target is broken again after 5114879
     if ever is_scm ; then
         edo mkdir -p include/config
@@ -38,7 +40,7 @@ src_prepare() {
     fi
 }
 
-src_compile() {
+uboot-mkimage_src_compile() {
     emake \
         HOSTSTRIP=: \
         HOSTCC="${CC}" \
@@ -47,7 +49,7 @@ src_compile() {
         tools-only
 }
 
-src_install() {
+uboot-mkimage_src_install() {
     dobin tools/mkimage
     doman doc/mkimage.1
 }

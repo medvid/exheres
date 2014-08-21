@@ -5,6 +5,8 @@
 
 require github [ user=seanpringle ]
 
+export_exlib_phases src_install
+
 SUMMARY="Lightweight EWMH window switcher with features and looks of dmenu"
 
 LICENCES="MIT"
@@ -21,7 +23,7 @@ DEPENDENCIES="
         x11-libs/libXres
 "
 
-src_install() {
+simpleswitcher_src_install() {
     default
 
     doman ${PN}.1

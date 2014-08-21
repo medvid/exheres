@@ -3,6 +3,8 @@
 
 require github [ user=shimmerproject pn='Numix' tag=v${PV} ]
 
+export_exlib_phases src_install
+
 SUMMARY="A modern flat theme with a combination of light and dark elements"
 
 LICENCES="GPL-3"
@@ -14,7 +16,7 @@ DEPENDENCIES="
         x11-themes/gtk-engines-murrine
 "
 
-src_install() {
+gtk-theme-numix_src_install() {
     default
 
     insinto /usr/share/themes/Numix

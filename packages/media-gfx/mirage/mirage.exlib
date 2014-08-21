@@ -12,6 +12,8 @@ else
     DOWNLOADS="mirror://berlios/mirageiv/${PNV}.tar.bz2"
 fi
 
+export_exlib_phases src_install
+
 SUMMARY="A fast and simple image viewer based on python and GTK+"
 HOMEPAGE="http://mirageiv.berlios.de/"
 
@@ -27,7 +29,7 @@ DEPENDENCIES="
         gnome-bindings/pygtk:2[>=2.12]
 "
 
-src_install() {
+mirage_src_install() {
     distutils_src_install
 
     # These docs are installed to /usr/share/mirage for some reason

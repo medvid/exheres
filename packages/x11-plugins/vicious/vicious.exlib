@@ -10,6 +10,8 @@ else
     DOWNLOADS="http://git.sysphere.org/${PN}/snapshot/${PNV}.tar.xz"
 fi
 
+export_exlib_phases src_install
+
 SUMMARY="Modular widget library for x11-wm/awesome"
 HOMEPAGE="http://awesome.naquadah.org/wiki/Vicious"
 
@@ -22,7 +24,7 @@ DEPENDENCIES="
         x11-wm/awesome
 "
 
-src_install() {
+vicious_src_install() {
     default
 
     insinto /usr/share/awesome/lib/vicious

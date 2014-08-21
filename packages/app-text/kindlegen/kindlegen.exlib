@@ -3,6 +3,8 @@
 # Based in part upon 'kindlegen-2.9-r1.ebuild' from Gentoo, which is:
 #     Copyright 1999-2012 Gentoo Foundation
 
+export_exlib_phases src_install
+
 SUMMARY="Amazon's converter into a Kindle Book"
 DESCRIPTION="
 KindleGen is a command line tool which enables publishers to work in
@@ -23,7 +25,7 @@ DEPENDENCIES=""
 # badly formed tarball
 WORK=${WORKBASE}
 
-src_install() {
+kindlegen_src_install() {
     exeinto /usr/bin
     doexe kindlegen
     dodoc docs/english/*.*

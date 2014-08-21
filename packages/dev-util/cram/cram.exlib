@@ -3,6 +3,8 @@
 
 require setup-py [ import=distutils has_bin=true multibuild=false ]
 
+export_exlib_phases src_install
+
 SUMMARY="Functional testing framework for command line applications"
 DESCRIPTION="
 Cram tests look like snippets of interactive shell sessions.
@@ -21,7 +23,7 @@ MYOPTIONS="
 
 DEPENDENCIES=""
 
-src_install() {
+cram_src_install() {
     setup-py_src_install
 
     if option examples ; then
