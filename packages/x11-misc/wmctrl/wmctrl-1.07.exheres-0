@@ -1,0 +1,37 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'wmctrl-1.07-r1.ebuild' from Gentoo, which is:
+#     Copyright 1999-2013 Gentoo Foundation
+
+# Fix 'configure: error: unrecognized option: --docdir=/usr/share/doc/wmctrl-1.07'
+require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
+
+SUMMARY="Command line tool to interact with an EWMH/NetWM compatible X Window Manager"
+DESCRIPTION="
+The tool provides command line access to almost all the features defined in
+the EWMH specification. It can be used, for example, to get information about
+the window manager, to get a detailed list of desktops and managed windows,
+to switch and resize desktops, to make windows full-screen, always-above or
+sticky, and to activate, close, move, resize, maximize and minimize them.
+"
+HOMEPAGE="http://tomas.styblo.name/wmctrl/"
+DOWNLOADS="${HOMEPAGE}/dist/${PNV}.tar.gz"
+
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        virtual/pkg-config
+        x11-proto/xproto
+    build+run:
+        dev-libs/glib:2
+        x11-libs/libX11
+        x11-libs/libXt
+        x11-libs/libXmu
+"
+
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}"/${PNV}-amd64-Xlib.patch )
+
