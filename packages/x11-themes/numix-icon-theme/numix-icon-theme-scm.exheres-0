@@ -9,7 +9,6 @@ Numix icon theme is heavily inspired by, and based upon parts of the
 Elementary, Humanity and Gnome icon themes.
 "
 HOMEPAGE="http://numixproject.org/"
-DOWNLOADS=""
 
 LICENCES="GPL-3"
 SLOT="0"
