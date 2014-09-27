@@ -1,0 +1,26 @@
+# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require gtk-icon-cache
+
+SUMMARY="X11 mouse theme with a comics feeling"
+HOMEPAGE="http://gnome-look.org/content/show.php/ComixCursors?content=32627"
+DOWNLOADS="http://www.limitland.de/comixcursors/ComixCursors-${PV}.tar.bz2"
+
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    run:
+       x11-libs/libXcursor
+"
+
+WORK="${WORKBASE}"
+
+src_install() {
+    insinto /usr/share/icons
+    doins -r ComixCursors-*
+}
+
