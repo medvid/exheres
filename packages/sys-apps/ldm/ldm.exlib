@@ -1,12 +1,7 @@
 # Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-# Not using github exlib because package needs to be built in git checkout
-SCM_REPOSITORY="git://github.com/LemonBoy/${PN}.git"
-if ! ever at_least scm ; then
-    SCM_TAG="v${PV}"
-fi
-require scm-git
+require github [ user=LemonBoy tag=v${PV} ]
 
 SUMMARY="A lightweight device mounter"
 DESCRIPTION="
