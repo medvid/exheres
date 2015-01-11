@@ -1,0 +1,43 @@
+# Copyright 2011 Johannes Nixdorf <mixi@shadowice.org>
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require pypi setup-py [ import=setuptools has_bin=true multibuild=false ]
+
+SUMMARY="An automatic disk mounting service using udisks"
+
+LICENCES="MIT"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS="doc libnotify"
+
+DEPENDENCIES="
+    build:
+        sys-devel/gettext
+        doc? ( app-doc/asciidoc )
+    build+run:
+        dev-python/docopt
+        dev-python/PyYAML[python_abis:*(-)?]
+        gnome-bindings/pygobject:3[python_abis:*(-)?]
+        x11-libs/gtk+:3[gobject-introspection]
+        libnotify? ( x11-libs/libnotify[gobject-introspection] )
+    run:
+        sys-apps/udisks
+"
+
+src_compile() {
+    setup-py_src_compile
+
+    if option doc ; then
+        edo pushd doc
+        emake
+        popd
+    fi
+}
+
+src_install() {
+    setup-py_src_install
+
+    option doc && doman doc/${PN}.8
+}
+
