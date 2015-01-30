@@ -18,8 +18,8 @@ DEPENDENCIES=""
 DEFAULT_SRC_TEST_PARAMS=( -j1 )
 
 rcm_src_test() {
-    esandbox allow "/tmp/test"
+    esandbox allow_net "unix:/tmp/test"
     default
-    esandbox disallow "/tmp/test"
+    esandbox disallow_net "unix:/tmp/test"
 }
 
