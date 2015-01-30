@@ -18,7 +18,7 @@ HOMEPAGE="http://www.wiznote.com/"
 
 LICENCES="GPL-3"
 SLOT="0"
-MYOPTIONS=""
+MYOPTIONS="qt5 [[ description = [ Build against Qt5 instead of Qt4. ] ]]"
 
 DEPENDENCIES="
     build+run:
@@ -26,12 +26,20 @@ DEPENDENCIES="
         dev-cpp/clucene
         dev-db/sqlite
         sys-libs/zlib
-        x11-libs/qt:4[webkit]
+        qt5? (
+            x11-libs/qtbase:5
+            x11-libs/qtwebkit:5
+        )
+        !qt5? (
+            x11-libs/qt:4[webkit]
+        )
 "
 
 DEFAULT_SRC_PREPARE_PATCHES+=(
     "${FILES}"/${PN}-use-system-libs.patch
 )
+
+CMAKE_SRC_CONFIGURE_OPTIONS+=( 'qt5 WIZNOTE_USE_QT5' )
 
 # Don't want to bother upstream with $LIB_SUFFIX
 wiznote_src_install() {
