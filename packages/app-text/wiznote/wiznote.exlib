@@ -1,4 +1,4 @@
-# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net
+# Copyright 2014-2015 Volodymyr Medvid <vmedvid@riseup.net
 # Distributed under the terms of the GNU General Public License v2
 # Based in part upon 'wiznote-9999.ebuild' from Gentoo, which is:
 #     Copyright 1999-2012 Gentoo Foundation
@@ -6,13 +6,15 @@
 require github [ user=WizTeam pn=WizQTClient tag=v${PV} ]
 require cmake [ api=2 ]
 
+export_exlib_phases src_install
+
 SUMMARY="Cross-platform cloud based note-taking client"
 DESCRIPTION="
 WizNote lets you capture anything you might to remember: create text notes,
 clip content from the web, snap photos and have all of these notes avaliable
-you on any device.
+with you on any device.
 "
-HOMEPAGE="http://www.wiz.cn/index.html"
+HOMEPAGE="http://www.wiznote.com/"
 
 LICENCES="GPL-3"
 SLOT="0"
@@ -20,6 +22,21 @@ MYOPTIONS=""
 
 DEPENDENCIES="
     build+run:
-        x11-libs/qt[webkit]
+        app-arch/quazip
+        dev-cpp/clucene
+        dev-db/sqlite
+        sys-libs/zlib
+        x11-libs/qt:4[webkit]
 "
+
+DEFAULT_SRC_PREPARE_PATCHES+=(
+    "${FILES}"/${PN}-use-system-libs.patch
+)
+
+# Don't want to bother upstream with $LIB_SUFFIX
+wiznote_src_install() {
+    default
+
+    edo mv "${IMAGE}"/usr/{lib,${LIBDIR}}
+}
 
