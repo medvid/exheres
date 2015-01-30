@@ -4,6 +4,8 @@
 require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
 require github [ user=thoughtbot tag=v${PV} ]
 
+export_exlib_phases src_test
+
 SUMMARY="A management suite for dotfiles"
 DOWNLOADS="https://thoughtbot.github.io/${PN}/dist/${PNV}.tar.gz"
 
@@ -12,4 +14,12 @@ SLOT="0"
 MYOPTIONS=""
 
 DEPENDENCIES=""
+
+DEFAULT_SRC_TEST_PARAMS=( -j1 )
+
+rcm_src_test() {
+    esandbox allow "/tmp/test"
+    default
+    esandbox disallow "/tmp/test"
+}
 
