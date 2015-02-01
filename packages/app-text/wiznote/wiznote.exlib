@@ -22,7 +22,7 @@ MYOPTIONS="qt5 [[ description = [ Build against Qt5 instead of Qt4. ] ]]"
 
 DEPENDENCIES="
     build+run:
-        app-arch/quazip
+        app-arch/quazip[qt5?]
         dev-cpp/clucene
         dev-db/sqlite
         sys-libs/zlib
