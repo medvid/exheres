@@ -11,17 +11,17 @@ LICENCES="MIT"
 SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS="
-    clutter      [[ description = [ Enable support for clutter video sink ] ]]
-    daap         [[ description = [ Enable DAAP support ] ]]
-    doc          [[ description = [ Build API documentation ] ]]
-    gio          [[ description = [ Enable GIO for IO operations ] ]]
-    gio-hardware [[ description = [ Enable GIO for IO operations ] ]]
-    ipod         [[ description = [ Enable Apple device (iPhone, iPod, iPad) DAP support ] ]]
-    mtp          [[ description = [ Enable MTP DAP support ] ]]
-    webkit       [[ description = [ Enable extensions which require WebKit ] ]]
+    clutter [[ description = [ Enable support for clutter video sink ] ]]
+    daap    [[ description = [ Enable DAAP support ] ]]
+    doc     [[ description = [ Build API documentation ] ]]
+    udev    [[ description = [ Enable GIO Hardware backend ] ]]
+    ipod    [[ description = [ Enable Apple device (iPhone, iPod, iPad) DAP support ] ]]
+    mtp     [[ description = [ Enable MTP DAP support ] ]]
+    webkit  [[ description = [ Enable extensions which require WebKit ] ]]
 "
 
 DEFAULT_SRC_CONFIGURE_PARAMS=(
+    --enable-gio
     --enable-gst-native
     --disable-boo
     --disable-gnome
@@ -39,8 +39,7 @@ DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=(
     clutter
     daap
     'doc docs'
-    gio
-    gio-hardware
+    'udev gio_hardware'
     'ipod appledevice'
     mtp
     webkit
@@ -62,12 +61,13 @@ DEPENDENCIES="
         daap? ( dev-dotnet/mono-zeroconf[>=0.7.3] )
         ipod? ( dev-dotnet/libgpod-sharp[>=0.1] )
         mtp? ( media-libs/libmtp[>=1.1.0] )
+        udev? ( gnome-bindings/gudev-sharp[>=3.0] )
         webkit? (
             gnome-desktop/libsoup:2.4[>=2.42]
             net-libs/webkit:3[>=1.2.2]
         )
     build:
-        dev-util/pkg-config
+        virtual/pkg-config
         gnome-desktop/gnome-doc-utils[>=0.17.3]
     suggestion:
         media-plugins/gst-plugins-bad:1.0
