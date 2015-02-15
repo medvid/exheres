@@ -3,6 +3,6 @@
 
 require dbus-sharp
 
-SLOT="2"
+SLOT="1"
 PLATFORMS="~amd64"
 

@@ -1,0 +1,29 @@
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+if ever at_least 0.8.0 ; then
+    GITHUB_TAG="v${PV}"
+else
+    GITHUB_TAG="v$(ever range 1-2)"
+fi
+
+require mono github [ user=mono ] autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
+
+SUMMARY="C# implementation of D-Bus"
+DESCRIPTION="
+DBus Sharp is a fork of ndesk-dbus, which is a C# implementation of D-Bus. It's
+often referred to as 'managed D-Bus' to avoid confusion with existing
+bindings (which wrap libdbus).
+"
+HOMEPAGE="http://mono.github.com/dbus-sharp/"
+
+LICENCES="MIT"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        dev-lang/mono[>=2.0]
+    build:
+        virtual/pkg-config
+"
+
