@@ -3,7 +3,7 @@
 
 require dbus-sharp-glib
 
-SLOT="2"
+SLOT="1"
 PLATFORMS="~amd64"
 
 DEPENDENCIES+="
