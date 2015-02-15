@@ -1,0 +1,25 @@
+# Copyright 2010 Jonathan Dahan <jedahan@gmail.com>
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require gnome.org [ suffix=.tar.xz ] python [ blacklist='3' has_bin=true ]
+
+SUMMARY="D-Feet is a powerful D-Bus debugger"
+HOMEPAGE="https://wiki.gnome.org/DFeet/"
+
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    run:
+        dev-python/pep8[python_abis:*(-)?]
+        gnome-bindings/pygobject:3[>=3.3.91][python_abis:*(-)?]
+        gnome-desktop/gobject-introspection:1[>=0.9.6]
+        sys-apps/dbus[>=1.0]
+        x11-libs/gtk+:3[>=3.9.4][gobject-introspection]
+    suggestion:
+        gnome-desktop/libwnck [[ description = [ display application icons ] ]]
+"
+
