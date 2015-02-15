@@ -31,6 +31,10 @@ src_prepare() {
         -e "s:\(prefix[)}@]\?/\)lib:\1${LIBDIR}:g" \
         -i gudev/Makefile.am \
         -i gudev-sharp-3.0.pc.in
+    # fix wrong mask for generated sources
+    edo sed \
+        -e '/^GENERATED_SOURCES/s:\*\.cs:*\/*.cs:' \
+        -i configure.ac
     eautoreconf
 }
 
