@@ -10,9 +10,9 @@ if ever is_scm ; then
     SCM_EXTERNAL_REFS="src/Hyena:hyena"
 fi
 
-require gnome.org mono
+require gnome.org mono freedesktop-desktop gtk-icon-cache
 
-export_exlib_phases src_prepare
+export_exlib_phases src_prepare pkg_postrm pkg_postinst
 
 SUMMARY="A music player built on top of gtk# and gstreamer"
 HOMEPAGE="http://banshee-project.org/"
@@ -91,5 +91,15 @@ banshee_src_prepare() {
         edo sed -i '/^run \.\/configure/d' autogen.sh
         edo ./autogen.sh
     fi
+}
+
+banshee_pkg_postrm() {
+    freedesktop-desktop_pkg_postrm
+    gtk-icon-cache_pkg_postrm
+}
+
+banshee_pkg_postinst() {
+    freedesktop-desktop_pkg_postinst
+    gtk-icon-cache_pkg_postinst
 }
 
