@@ -2,7 +2,17 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
+if ever is_scm ; then
+    SCM_hyena_REPOSITORY="git://git.gnome.org/hyena"
+    SCM_hyena_BRANCH="gtk3"
+
+    SCM_SECONDARY_REPOSITORIES="hyena"
+    SCM_EXTERNAL_REFS="src/Hyena:hyena"
+fi
+
 require gnome.org mono
+
+export_exlib_phases src_prepare
 
 SUMMARY="A music player built on top of gtk# and gstreamer"
 HOMEPAGE="http://banshee-project.org/"
@@ -73,4 +83,13 @@ DEPENDENCIES="
         media-plugins/gst-plugins-good:1.0
         media-plugins/gst-plugins-ugly:1.0
 "
+
+banshee_src_prepare() {
+    default
+
+    if ever is_scm ; then
+        edo sed -i '/^run \.\/configure/d' autogen.sh
+        edo ./autogen.sh
+    fi
+}
 
