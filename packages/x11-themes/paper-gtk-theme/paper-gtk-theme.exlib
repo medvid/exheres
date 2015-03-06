@@ -1,0 +1,18 @@
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=snwh ]
+
+export_exlib_phases src_install
+
+SUMMARY="Paper is a modern desktop theme suite"
+
+LICENCES="GPL-3"
+SLOT="0"
+MYOPTIONS=""
+
+paper-gtk-theme_src_install() {
+    insinto /usr/share/themes
+    doins -r Paper
+}
+
