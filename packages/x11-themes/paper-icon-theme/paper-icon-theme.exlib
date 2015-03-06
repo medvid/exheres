@@ -1,0 +1,25 @@
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=snwh ] gtk-icon-cache
+
+export_exlib_phases src_install
+
+SUMMARY="Paper is simple and modern icon theme inspired by Google's material design"
+
+LICENCES="CCPL-Attribution-ShareAlike-3.0"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    run:
+        gnome-desktop/gnome-icon-theme
+        x11-themes/hicolor-icon-theme
+"
+
+paper-icon-theme_src_install() {
+    insinto /usr/share/icons
+    doins -r Paper
+}
+
+
