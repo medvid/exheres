@@ -1,0 +1,30 @@
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require setup-py [ import='setuptools' ] pypi
+
+SUMMARY="Port of the Tulip project (asyncio module, PEP 3156) on Python 2"
+DESCRIPTION="
+Trollius provides infrastructure for writing single-threaded concurrent code
+using coroutines, multiplexing I/O access over sockets and other resources,
+running network clients and servers, and other related primitives.
+"
+HOMEPAGE="https://bitbucket.org/enovance/trollius/"
+
+LICENCES="Apache-2"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        python_abis:2.7? ( dev-python/futures[python_abis:2.7] )
+    test:
+        dev-python/mock[python_abis:*(-)?]
+"
+
+src_test() {
+    esandbox allow_net "unix:${WORK}/temp/"
+    default
+    esandbox disallow_net "unix:${WORK}/temp/"
+}
