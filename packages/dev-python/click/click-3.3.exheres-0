@@ -1,0 +1,19 @@
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require setup-py [ import='setuptools' ] pypi
+
+SUMMARY="A simple wrapper around optparse for powerful command line utilities"
+DESCRIPTION="
+Click is a Python package for creating beautiful command line interfaces
+in a composable way with as little code as necessary. It's the 'Command
+Line Interface Creation Kit'. It's highly configurable but comes with
+sensible defaults out of the box.
+"
+HOMEPAGE="https://github.com/mitsuhiko/${PN}"
+
+LICENCES="BSD-3"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
