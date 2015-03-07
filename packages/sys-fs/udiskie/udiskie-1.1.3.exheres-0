@@ -16,7 +16,7 @@ DEPENDENCIES="
         sys-devel/gettext
         doc? ( app-doc/asciidoc )
     build+run:
-        dev-python/docopt
+        dev-python/docopt[python_abis:*(-)?]
         dev-python/PyYAML[python_abis:*(-)?]
         gnome-bindings/pygobject:3[python_abis:*(-)?]
         x11-libs/gtk+:3[gobject-introspection]
