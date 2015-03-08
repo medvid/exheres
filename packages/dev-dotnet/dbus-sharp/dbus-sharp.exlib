@@ -7,7 +7,7 @@ else
     GITHUB_TAG="v$(ever range 1-2)"
 fi
 
-require mono github [ user=mono ] autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
+require github [ user=mono ] autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
 
 SUMMARY="C# implementation of D-Bus"
 DESCRIPTION="

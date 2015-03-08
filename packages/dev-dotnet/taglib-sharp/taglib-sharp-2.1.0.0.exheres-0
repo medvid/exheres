@@ -1,7 +1,7 @@
 # Copyright 2009 Elias Pipping <elias@pipping.org>
 # Distributed under the terms of the GNU General Public License v2
 
-require mono autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.11 ] ]
+require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.11 ] ]
 
 SUMMARY="A .NET library for reading and writing tagging information stored in popular audio formats"
 HOMEPAGE="http://developer.novell.com/wiki/index.php/TagLib_Sharp"

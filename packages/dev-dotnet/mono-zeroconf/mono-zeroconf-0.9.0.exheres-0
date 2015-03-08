@@ -4,8 +4,7 @@
 MY_PN="Mono.Zeroconf"
 GITHUB_TAG="${MY_PN}-${PV}"
 
-require mono github [ user=mono ] \
-    autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.11 ] ]
+require github [ user=mono ] autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.11 ] ]
 
 SUMMARY="A .NET library for Zero Configuration Networking"
 HOMEPAGE="http://www.mono-project.com/Mono.Zeroconf"

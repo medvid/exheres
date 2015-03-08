@@ -10,7 +10,7 @@ if ever is_scm ; then
     SCM_EXTERNAL_REFS="src/Hyena:hyena"
 fi
 
-require gnome.org mono freedesktop-desktop gtk-icon-cache
+require gnome.org freedesktop-desktop gtk-icon-cache
 
 export_exlib_phases src_prepare pkg_postrm pkg_postinst
 

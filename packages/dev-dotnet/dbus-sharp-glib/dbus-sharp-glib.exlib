@@ -3,8 +3,7 @@
 
 MY_PV=v${PV}
 GITHUB_TAG="v$(ever range 1-2)"
-require mono github [ user=mono ] \
-    autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
+require github [ user=mono ] autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
 
 SUMMARY="D-Bus for .NET: GLib integration module"
 DESCRIPTION="
