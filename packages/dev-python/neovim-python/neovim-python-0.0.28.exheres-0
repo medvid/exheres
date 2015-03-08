@@ -20,6 +20,6 @@ DEPENDENCIES="
         dev-python/msgpack-python[>=0.4.0][python_abis:*(-)?]
         python_abis:2.7? ( dev-python/trollius[python_abis:2.7] )
     test:
-        dev-python/greenlet
+        dev-python/greenlet[python_abis:*(-)?]
 "
 
