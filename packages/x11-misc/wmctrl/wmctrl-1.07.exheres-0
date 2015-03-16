@@ -14,8 +14,8 @@ the window manager, to get a detailed list of desktops and managed windows,
 to switch and resize desktops, to make windows full-screen, always-above or
 sticky, and to activate, close, move, resize, maximize and minimize them.
 "
-HOMEPAGE="http://tomas.styblo.name/wmctrl/"
-DOWNLOADS="${HOMEPAGE}/dist/${PNV}.tar.gz"
+HOMEPAGE="https://sites.google.com/site/tstyblo/${PN}"
+DOWNLOADS="${HOMEPAGE}/${PNV}.tar.gz"
 
 LICENCES="GPL-2"
 SLOT="0"
