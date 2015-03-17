@@ -2,7 +2,7 @@ Title: Repository name changed to ::medvid
 Author: Volodymyr Medvid <vmedvid@riseup.net>
 Content-Type: text/plain
 Posted: 2015-03-17
-Revision: 1
+Revision: 2
 News-Item-Format: 1.0
 
 Repository name have been changed from ::cimv2 to ::medvid.
@@ -10,5 +10,5 @@ In order to match the new name, please update references:
 
 # mv /etc/paludis/repositories/{cimv2,medvid}.conf
 # mv /var/db/paludis/repositories/{cimv2,medvid}
-# sed -e 's:cimv2:medvid:' -i /etc/paludis/repositories/medvid.conf
+# sed -e 's:cimv2:medvid:g' -i /etc/paludis/repositories/medvid.conf
 # cave sync medvid
