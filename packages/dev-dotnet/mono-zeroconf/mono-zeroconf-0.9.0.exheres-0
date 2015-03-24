@@ -17,16 +17,15 @@ MYOPTIONS=""
 EXJOBS="1"
 
 DEPENDENCIES="
+    build:
+        virtual/pkg-config
     build+run:
         dev-lang/mono[>=2.0]
-    build:
-        dev-util/pkg-config
 "
 
 src_prepare() {
     default
 
-    edo sed -e "/^GACUTIL/s:lib:${LIBDIR}:g" -i configure.ac
     # autoreconf doesn't work
     edo ./autogen.sh
 }
