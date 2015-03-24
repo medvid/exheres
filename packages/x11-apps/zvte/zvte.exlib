@@ -18,6 +18,6 @@ DEPENDENCIES="
 "
 
 DEFAULT_SRC_INSTALL_PARAMS=(
-    PREFIX=/usr
+    PREFIX=/usr/$(exhost --target)
 )
 
