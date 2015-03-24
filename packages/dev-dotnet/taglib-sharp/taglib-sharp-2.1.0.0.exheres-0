@@ -1,8 +1,6 @@
 # Copyright 2009 Elias Pipping <elias@pipping.org>
 # Distributed under the terms of the GNU General Public License v2
 
-require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.11 ] ]
-
 SUMMARY="A .NET library for reading and writing tagging information stored in popular audio formats"
 HOMEPAGE="http://developer.novell.com/wiki/index.php/TagLib_Sharp"
 DOWNLOADS="http://download.banshee-project.org/${PN}/${PV}/${PNV}.tar.bz2"
@@ -16,18 +14,10 @@ DEFAULT_SRC_CONFIGURE_PARAMS=( --disable-docs ) # FIXME: sandbox violation
 
 # TODO properly disable gnome-sharp
 DEPENDENCIES="
+    build:
+        virtual/pkg-config
     build+run:
         dev-lang/mono[>=2]
         gnome? ( gnome-bindings/gnome-sharp:2[>=2.0] )
-    build:
-        dev-util/pkg-config
 "
-
-src_prepare() {
-    default
-
-    edo sed -e "/^GACUTIL/s:lib:${LIBDIR}:g" -i configure.ac
-    edo mkdir tests && edo touch tests/Makefile.am
-    eautoreconf
-}
 
