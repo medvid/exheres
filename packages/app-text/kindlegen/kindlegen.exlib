@@ -26,8 +26,7 @@ DEPENDENCIES=""
 WORK=${WORKBASE}
 
 kindlegen_src_install() {
-    exeinto /usr/bin
-    doexe kindlegen
+    dobin kindlegen
     dodoc docs/english/*.*
 }
 
