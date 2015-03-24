@@ -22,8 +22,7 @@ DEPENDENCIES="
 "
 
 DEFAULT_SRC_INSTALL_PARAMS=(
-    PREFIX="/usr"
-    SYSTEMDDIR="/usr/${LIBDIR}/systemd"
+    PREFIX=/usr/$(exhost --target)
     DESTDIR="${IMAGE}"
 )
 
