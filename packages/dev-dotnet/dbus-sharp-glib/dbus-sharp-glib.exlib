@@ -16,9 +16,9 @@ LICENCES="MIT"
 MYOPTIONS=""
 
 DEPENDENCIES="
-    build+run:
-        dev-lang/mono[>=2.0]
     build:
         virtual/pkg-config
+    build+run:
+        dev-lang/mono[>=2.0]
 "
 
