@@ -1,7 +1,7 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=mono ]
+require github [ user=mono ] autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
 
 SUMMARY=".NET binding to gudev"
 DESCRIPTION="
@@ -21,4 +21,14 @@ DEPENDENCIES="
         gnome-bindings/gtk-sharp:3[>=2.99.0]
         sys-apps/systemd[>=146] [[ description = [ for udev ] ]]
 "
+
+src_prepare() {
+    default
+
+    # fix wrong mask for generated sources
+    edo sed \
+        -e '/^GENERATED_SOURCES/s:\*\.cs:*\/*.cs:' \
+       -i configure.ac
+    eautoreconf
+}
 
