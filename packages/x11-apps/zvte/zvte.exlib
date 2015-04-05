@@ -1,7 +1,7 @@
 # Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=medvid ]
+require github [ user=medvid ] cmake [ api=2 ]
 
 SUMMARY="Simple VTE-based terminal"
 
@@ -16,8 +16,4 @@ DEPENDENCIES="
         dev-libs/vte:2.91
         x11-libs/gtk+:3
 "
-
-DEFAULT_SRC_INSTALL_PARAMS=(
-    PREFIX=/usr/$(exhost --target)
-)
 
