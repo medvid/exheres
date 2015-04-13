@@ -22,3 +22,9 @@ DEPENDENCIES="
         dev-lang/mono[>=2.0]
 "
 
+src_prepare() {
+    edo sed -e '/AC_PATH_PROG(PKG_CONFIG/d' -i configure.ac
+
+    autotools_src_prepare
+}
+
