@@ -17,3 +17,6 @@ DEPENDENCIES="
         mail-client/claws-mail
 "
 
+# Everything is installed into $(prefix)/share
+DEFAULT_SRC_CONFIGURE_PARAMS=( --prefix=/usr )
+
