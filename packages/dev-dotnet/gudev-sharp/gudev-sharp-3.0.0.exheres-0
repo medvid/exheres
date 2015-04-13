@@ -23,12 +23,13 @@ DEPENDENCIES="
 "
 
 src_prepare() {
-    default
-
-    # fix wrong mask for generated sources
+    # Fix wrong mask for generated sources
+    # Rely on ${PKG_CONFIG} instead of pkg-config
     edo sed \
         -e '/^GENERATED_SOURCES/s:\*\.cs:*\/*.cs:' \
-       -i configure.ac
-    eautoreconf
+        -e '/AC_PATH_PROG(PKG_CONFIG/d' \
+        -i configure.ac
+
+    autotools_src_prepare
 }
 
