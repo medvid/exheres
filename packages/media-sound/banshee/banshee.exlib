@@ -4,13 +4,16 @@
 
 if ever is_scm ; then
     SCM_hyena_REPOSITORY="git://git.gnome.org/hyena"
+    # To make it work, go to /var/cache/paludis/repositories/scm/hyena
+    # and run "git branch gtk3"
     SCM_hyena_BRANCH="gtk3"
 
     SCM_SECONDARY_REPOSITORIES="hyena"
     SCM_EXTERNAL_REFS="src/Hyena:hyena"
 fi
 
-require gnome.org freedesktop-desktop gtk-icon-cache
+require gnome.org freedesktop-desktop gtk-icon-cache \
+        autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
 
 export_exlib_phases src_prepare pkg_postrm pkg_postinst
 
@@ -84,13 +87,20 @@ DEPENDENCIES="
         media-plugins/gst-plugins-ugly:1.0
 "
 
-banshee_src_prepare() {
-    default
+AT_M4DIR=( 'build/m4/banshee' 'build/m4/shamrock' 'build/m4/shave' )
 
-    if ever is_scm ; then
-        edo sed -i '/^run \.\/configure/d' autogen.sh
-        edo ./autogen.sh
-    fi
+banshee_src_prepare() {
+    edo sed \
+        -e "s/pkg-config/$(exhost --tool-prefix)pkg-config/g" \
+        -i build/m4/banshee/gtk-sharp.m4 \
+        -i build/m4/shamrock/mono.m4 \
+        -i src/Hyena/build/m4/shamrock/mono.m4
+    edo sed \
+        -e '/AC_PATH_PROG(PKG_CONFIG/d' \
+        -i src/Hyena/configure.ac
+
+    edo intltoolize --force --copy --automake
+    autotools_src_prepare
 }
 
 banshee_pkg_postrm() {
