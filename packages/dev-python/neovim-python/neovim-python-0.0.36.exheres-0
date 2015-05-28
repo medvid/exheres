@@ -16,9 +16,12 @@ MYOPTIONS=""
 
 DEPENDENCIES="
     build+run:
-        dev-python/click[>=3.0][python_abis:*(-)?]
         dev-python/greenlet[python_abis:*(-)?]
         dev-python/msgpack-python[>=0.4.0][python_abis:*(-)?]
-        python_abis:2.7? ( dev-python/trollius[python_abis:2.7] )
+        python_abis:2.7? (
+            dev-python/click[>=3.0][python_abis:2.7]
+            dev-python/trollius[python_abis:2.7]
+            gnome-bindings/pygobject:2[python_abis:2.7] [[ note = [ for pynvim GUI client ] ]]
+        )
 "
 
