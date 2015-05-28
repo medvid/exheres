@@ -9,17 +9,21 @@ SUMMARY="A modern flat theme with a combination of light and dark elements"
 
 LICENCES="GPL-3"
 SLOT="0"
-MYOPTIONS=""
+MYOPTIONS="
+    ( gtk gtk3 ) [[ number-selected = at-least-one ]]
+"
 
 DEPENDENCIES="
     run:
-        x11-themes/gtk-engines-murrine
+        gtk? ( x11-themes/gtk-engines-murrine )
 "
 
 gtk-theme-numix_src_install() {
     default
 
     insinto /usr/share/themes/Numix
-    doins -r */ index.theme
+    doins index.theme
+    optionq gtk && doins -r gtk-2.0
+    optionq gtk3 && doins -r gtk-3.0
 }
 
