@@ -23,3 +23,8 @@ DEPENDENCIES="
         gnome-desktop/libwnck [[ description = [ display application icons ] ]]
 "
 
+src_prepare() {
+    default
+    edo intltoolize --force --automake
+}
+
