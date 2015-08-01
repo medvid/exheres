@@ -1,0 +1,23 @@
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=equalsraf ] cmake [ api=2 ]
+
+SUMMARY="Qt5 library and tools for interacting with Neovim."
+
+LICENCES="ISC"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        dev-libs/msgpack
+        x11-libs/qtbase:5[gui]
+    run:
+        app-editors/neovim
+"
+
+CMAKE_SRC_CONFIGURE_PARAMS+=(
+    -DUSE_SYSTEM_MSGPACK:BOOL=ON
+)
+
