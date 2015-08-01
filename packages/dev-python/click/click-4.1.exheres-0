@@ -1,7 +1,7 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require setup-py [ import='setuptools' ] pypi
+require github [ user=mitsuhiko ] setup-py [ import=setuptools ] pypi
 
 SUMMARY="A simple wrapper around optparse for powerful command line utilities"
 DESCRIPTION="
@@ -10,7 +10,9 @@ in a composable way with as little code as necessary. It's the 'Command
 Line Interface Creation Kit'. It's highly configurable but comes with
 sensible defaults out of the box.
 "
-HOMEPAGE="https://github.com/mitsuhiko/${PN}"
+
+UPSTREAM_DOCUMENTATION="http://${PN}.pocoo.org"
+UPSTREAM_RELEASE_NOTES="${UPSTREAM_DOCUMENTATION}/changelog"
 
 LICENCES="BSD-3"
 SLOT="0"
