@@ -9,10 +9,22 @@ SUMMARY="Paper is a modern desktop theme suite"
 
 LICENCES="GPL-3"
 SLOT="0"
-MYOPTIONS=""
+MYOPTIONS="
+    ( gtk2 gtk3 ) [[ number-selected = at-least-one ]]
+"
+
+DEPENDENCIES="
+    run:
+        gtk2? ( x11-themes/gtk-engines-murrine )
+"
 
 paper-gtk-theme_src_install() {
-    insinto /usr/share/themes
-    doins -r Paper
+    default
+
+    edo cd "${WORK}"/Paper
+    insinto /usr/share/themes/Paper
+    doins index.theme
+    optionq gtk2 && doins -r gtk-2.0
+    optionq gtk3 && doins -r gtk-3.0
 }
 
