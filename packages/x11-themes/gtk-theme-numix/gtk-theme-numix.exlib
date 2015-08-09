@@ -1,7 +1,10 @@
 # Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=shimmerproject pn='Numix' tag=v${PV} ]
+MY_PN="Numix"
+
+require github [ user=shimmerproject tag=v${PV} ] \
+        option-renames [ renames=[ 'gtk gtk2' ] ]
 
 export_exlib_phases src_install
 
@@ -10,20 +13,20 @@ SUMMARY="A modern flat theme with a combination of light and dark elements"
 LICENCES="GPL-3"
 SLOT="0"
 MYOPTIONS="
-    ( gtk gtk3 ) [[ number-selected = at-least-one ]]
+    ( gtk2 gtk3 ) [[ number-selected = at-least-one ]]
 "
 
 DEPENDENCIES="
     run:
-        gtk? ( x11-themes/gtk-engines-murrine )
+        gtk2? ( x11-themes/gtk-engines-murrine )
 "
 
 gtk-theme-numix_src_install() {
     default
 
-    insinto /usr/share/themes/Numix
+    insinto /usr/share/themes/${MY_PN}
     doins index.theme
-    optionq gtk && doins -r gtk-2.0
+    optionq gtk2 && doins -r gtk-2.0
     optionq gtk3 && doins -r gtk-3.0
 }
 
