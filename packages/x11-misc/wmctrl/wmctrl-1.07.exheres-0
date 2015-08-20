@@ -4,7 +4,7 @@
 #     Copyright 1999-2013 Gentoo Foundation
 
 # Fix 'configure: error: unrecognized option: --docdir=/usr/share/doc/wmctrl-1.07'
-require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
+require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.15 1.13 ] ]
 
 SUMMARY="Command line tool to interact with an EWMH/NetWM compatible X Window Manager"
 DESCRIPTION="
