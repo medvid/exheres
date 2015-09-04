@@ -22,3 +22,7 @@ DEPENDENCIES="
 # FIXME: sandbox violation
 DEFAULT_SRC_CONFIGURE_PARAMS=( --disable-docs )
 
+pkg_setup() {
+    export MCS=/usr/$(exhost --target)/bin/mcs
+}
+
