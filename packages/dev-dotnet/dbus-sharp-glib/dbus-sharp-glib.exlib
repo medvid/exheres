@@ -5,6 +5,8 @@ MY_PV=v${PV}
 GITHUB_TAG="v$(ever range 1-2)"
 require github [ user=mono ] autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
 
+export_exlib_phases pkg_setup src_prepare
+
 SUMMARY="D-Bus for .NET: GLib integration module"
 DESCRIPTION="
 This is a fork of ndesk-dbus-glib, which provides GLib main loop integration
@@ -22,9 +24,13 @@ DEPENDENCIES="
         dev-lang/mono[>=2.0]
 "
 
-src_prepare() {
+dbus-sharp-glib_pkg_setup() {
+    export GMCS=/usr/$(exhost --target)/bin/mcs
+}
+
+dbus-sharp-glib_src_prepare() {
     edo sed -e '/AC_PATH_PROG(PKG_CONFIG/d' -i configure.ac
 
-    autotools_src_prepare
+    default
 }
 
