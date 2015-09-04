@@ -9,6 +9,8 @@ fi
 
 require github [ user=mono ] autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
 
+export_exlib_phases pkg_setup src_prepare
+
 SUMMARY="C# implementation of D-Bus"
 DESCRIPTION="
 DBus Sharp is a fork of ndesk-dbus, which is a C# implementation of D-Bus. It's
@@ -27,9 +29,13 @@ DEPENDENCIES="
         dev-lang/mono[>=2.0]
 "
 
-src_prepare() {
+dbus-sharp_pkg_setup() {
+    export GMCS=/usr/$(exhost --target)/bin/mcs
+}
+
+dbus-sharp_src_prepare() {
     edo sed -e '/AC_PATH_PROG(PKG_CONFIG/d' -i configure.ac
 
-    autotools_src_prepare
+    default
 }
 
