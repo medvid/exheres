@@ -11,7 +11,9 @@ GUdev# allows access to device information from a C# program using Mono on Linux
 PLATFORMS="~amd64"
 LICENCES="LGPL-2.1"
 SLOT="3"
-MYOPTIONS=""
+MYOPTIONS="
+    ( providers: eudev systemd ) [[ number-selected = exactly-one ]]
+"
 
 DEPENDENCIES="
     build:
@@ -19,8 +21,14 @@ DEPENDENCIES="
     build+run:
         dev-lang/mono[>=2.0]
         gnome-bindings/gtk-sharp:3[>=2.99.0]
-        sys-apps/systemd[>=146] [[ description = [ for udev ] ]]
+        providers:systemd? ( sys-apps/systemd[>=146] ) [[ description = [ for udev ] ]]
+        providers:eudev? ( sys-apps/eudev )
 "
+
+
+pkg_setup() {
+    export CSC=/usr/$(exhost --target)/bin/mcs
+}
 
 src_prepare() {
     # Fix wrong mask for generated sources
@@ -30,6 +38,6 @@ src_prepare() {
         -e '/AC_PATH_PROG(PKG_CONFIG/d' \
         -i configure.ac
 
-    autotools_src_prepare
+    default
 }
 
