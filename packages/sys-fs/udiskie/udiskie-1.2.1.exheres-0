@@ -2,7 +2,7 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require pypi setup-py [ import=setuptools has_bin=true multibuild=false blacklist=3 ]
+require pypi setup-py [ import=setuptools has_bin=true multibuild=false ]
 
 SUMMARY="An automatic disk mounting service using udisks"
 
