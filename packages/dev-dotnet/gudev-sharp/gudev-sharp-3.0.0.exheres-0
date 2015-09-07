@@ -1,7 +1,7 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=mono ] autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
+require github [ user=mono ] autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.15 ] ]
 
 SUMMARY=".NET binding to gudev"
 DESCRIPTION="
@@ -38,6 +38,6 @@ src_prepare() {
         -e '/AC_PATH_PROG(PKG_CONFIG/d' \
         -i configure.ac
 
-    default
+    autotools_src_prepare
 }
 
