@@ -17,8 +17,14 @@ MYOPTIONS="
 "
 
 DEPENDENCIES="
+    build:
+        dev-ruby/sass
     run:
-        gtk2? ( x11-themes/gtk-engines-murrine )
+        gtk2? (
+            x11-libs/gtk+:2
+            x11-themes/gtk-engines-murrine
+        )
+        gtk3? ( x11-libs/gtk+:3[>=3.16.0] )
 "
 
 gtk-theme-numix_src_install() {
