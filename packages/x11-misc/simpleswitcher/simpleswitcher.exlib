@@ -5,7 +5,7 @@
 
 require github [ user=seanpringle ]
 
-export_exlib_phases src_install
+export_exlib_phases src_prepare src_install
 
 SUMMARY="Lightweight EWMH window switcher with features and looks of dmenu"
 
@@ -22,6 +22,17 @@ DEPENDENCIES="
         x11-libs/libXinerama
         x11-libs/libXres
 "
+
+DEFAULT_SRC_INSTALL_PARAMS=(
+    PREFIX="${IMAGE}"/usr/$(exhost --target)
+)
+
+
+simpleswitcher_src_prepare() {
+    default
+
+    edo sed -i "s#pkg-config#${PKG_CONFIG}#g" Makefile
+}
 
 simpleswitcher_src_install() {
     default
