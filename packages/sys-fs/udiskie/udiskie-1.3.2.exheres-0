@@ -19,7 +19,7 @@ DEPENDENCIES="
         dev-python/docopt[python_abis:*(-)?]
         dev-python/PyYAML[python_abis:*(-)?]
         gnome-bindings/pygobject:3[python_abis:*(-)?]
-        x11-libs/gtk+:3[gobject-introspection]
+        x11-libs/gtk+:3[gobject-introspection] [[ note = [ for tray icon and password prompt ] ]]
         libnotify? ( x11-libs/libnotify[gobject-introspection] )
     run:
         sys-apps/udisks
