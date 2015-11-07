@@ -14,13 +14,16 @@ HOMEPAGE="https://github.com/LemonBoy/${PN}"
 
 LICENCES="MIT"
 SLOT="0"
-MYOPTIONS=""
+MYOPTIONS="
+    ( providers: eudev systemd ) [[ number-selected = exactly-one ]]
+"
 
 DEPENDENCIES="
-    build+run:
-        sys-apps/systemd [[ note = [ udev ] ]]
     build:
         dev-lang/perl:* [[ description = [ pod2man is used to build the manpage ] ]]
+    build+run:
+        providers:eudev? ( sys-apps/eudev )
+        providers:systemd? ( sys-apps/systemd )
 "
 
 DEFAULT_SRC_INSTALL_PARAMS=(
