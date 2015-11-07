@@ -1,7 +1,6 @@
-# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Copyright 2014-2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
 require github [ user=thoughtbot tag=v${PV} ]
 
 export_exlib_phases src_test
@@ -13,7 +12,10 @@ LICENCES="BSD-3"
 SLOT="0"
 MYOPTIONS=""
 
-DEPENDENCIES=""
+DEPENDENCIES="
+    test:
+        dev-util/cram
+"
 
 DEFAULT_SRC_TEST_PARAMS=( -j1 )
 

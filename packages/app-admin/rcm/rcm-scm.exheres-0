@@ -1,7 +1,8 @@
-# Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
+# Copyright 2014-2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
 require rcm
+require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.15 ] ]
 
 DOWNLOADS=""
 
@@ -10,9 +11,6 @@ PLATFORMS="~amd64 ~x86"
 DEPENDENCIES+="
     build:
         dev-ruby/mustache [[ description = [ Generate contributors list ] ]]
-    test:
-        dev-util/cram
-
 "
 
 src_prepare() {
