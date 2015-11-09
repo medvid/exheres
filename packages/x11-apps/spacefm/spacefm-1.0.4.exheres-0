@@ -1,16 +1,22 @@
 # Copyright 2013-2015 Ray Griffin <rorgoroth-dev@outlook.com>
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
+
+require github [ user=IgnorantGuru ]
 
 SUMMARY="multi-panel tabbed file manager"
 HOMEPAGE="http://ignorantguru.github.io/spacefm/"
-DOWNLOADS="https://github.com/IgnorantGuru/spacefm/raw/pkg/${PV}/${PNV}.tar.xz"
 
 LICENCES="GPL-3"
 SLOT="0"
 PLATFORMS="~amd64"
-MYOPTIONS="gtk3 [[ description = [ Build GTK3 user interface ] ]]"
+MYOPTIONS="
+    startup-notification
+    ( providers: gtk2 gtk3 ) [[ number-selected = exactly-one ]]
+    ( providers: eudev systemd ) [[ number-selected = exactly-one ]]
+"
 
-BUGS_TO="rorgoroth-dev@outlook.com"
+BUGS_TO="vmedvid@riseup.net"
 
 DEPENDENCIES="
     build:
@@ -20,11 +26,13 @@ DEPENDENCIES="
     build+run:
         dev-libs/glib:2
         dev-util/desktop-file-utils
-        sys-apps/systemd
         x11-libs/libX11
         x11-misc/shared-mime-info
-        gtk3? ( x11-libs/gtk+:3 )
-        !gtk3? ( x11-libs/gtk+:2 )
+        startup-notification? ( x11-libs/startup-notification )
+        providers:gtk2? ( x11-libs/gtk+:2 )
+        providers:gtk3? ( x11-libs/gtk+:3 )
+        providers:eudev? ( sys-apps/eudev )
+        providers:systemd? ( sys-apps/systemd )
     suggestion:
         app-admin/sudo  [[ description = [ Used to perform root actions ] ]]
         sys-apps/udevil [[ description = [ Drive mounting               ] ]]
@@ -36,7 +44,9 @@ DEFAULT_SRC_CONFIGURE_PARAMS=(
     --disable-desktop-integration
     --disable-hal
     --disable-pixmaps
+    --disable-video-thumbnails
 )
 
-DEFAULT_SRC_CONFIGURE_OPTION_WITHS=( gtk3 )
+DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=( startup-notification )
+DEFAULT_SRC_CONFIGURE_OPTION_WITHS=( providers:gtk3 )
 
