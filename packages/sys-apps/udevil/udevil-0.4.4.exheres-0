@@ -1,4 +1,5 @@
 # Copyright 2013-2015 Ray Griffin  <rorgoroth-dev@outlook.com>
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
 SUMMARY="A simple udisks alternative."
@@ -14,9 +15,11 @@ DOWNLOADS="https://github.com/IgnorantGuru/udevil/raw/pkg/${PV}/${PNV}.tar.xz"
 LICENCES="GPL-3"
 SLOT="0"
 PLATFORMS="~amd64"
-MYOPTIONS=""
+MYOPTIONS="
+    ( providers: eudev systemd ) [[ number-selected = exactly-one ]]
+"
 
-BUGS_TO="rorgoroth-dev@outlook.com"
+BUGS_TO="vmedvid@riseup.net"
 
 DEPENDENCIES="
     build:
@@ -25,7 +28,8 @@ DEPENDENCIES="
         virtual/pkg-config
     build+run:
         dev-libs/glib:2
-        sys-apps/systemd
         sys-apps/util-linux
+        providers:eudev? ( sys-apps/eudev )
+        providers:systemd? ( sys-apps/systemd )
 "
 
