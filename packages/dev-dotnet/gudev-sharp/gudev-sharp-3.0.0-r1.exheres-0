@@ -5,15 +5,13 @@ require github [ user=mono ] autotools [ supported_autoconf=[ 2.5 ] supported_au
 
 SUMMARY=".NET binding to gudev"
 DESCRIPTION="
-GUdev# allows access to device information from a C# program using Mono on Linux.
+GUdev# allows access to device information from a C# program using Mono.
 "
 
 PLATFORMS="~amd64"
 LICENCES="LGPL-2.1"
 SLOT="3"
-MYOPTIONS="
-    ( providers: eudev systemd ) [[ number-selected = exactly-one ]]
-"
+MYOPTIONS=""
 
 DEPENDENCIES="
     build:
@@ -21,22 +19,18 @@ DEPENDENCIES="
     build+run:
         dev-lang/mono[>=2.0]
         gnome-bindings/gtk-sharp:3[>=2.99.0]
-        providers:systemd? ( sys-apps/systemd[>=146] ) [[ description = [ for udev ] ]]
-        providers:eudev? ( sys-apps/eudev )
+        gnome-desktop/libgudev[>=146]
 "
 
+DEFAULT_SRC_PREPARE_PATCHES=(
+    -p2 "${FILES}"/gudev.patch
+)
 
-pkg_setup() {
-    export CSC=/usr/$(exhost --target)/bin/mcs
-}
+DEFAULT_SRC_CONFIGURE_PARAMS=( CSC=/usr/$(exhost --target)/bin/mcs )
 
 src_prepare() {
-    # Fix wrong mask for generated sources
     # Rely on ${PKG_CONFIG} instead of pkg-config
-    edo sed \
-        -e '/^GENERATED_SOURCES/s:\*\.cs:*\/*.cs:' \
-        -e '/AC_PATH_PROG(PKG_CONFIG/d' \
-        -i configure.ac
+    edo sed -e '/AC_PATH_PROG(PKG_CONFIG/d' -i configure.ac
 
     autotools_src_prepare
 }

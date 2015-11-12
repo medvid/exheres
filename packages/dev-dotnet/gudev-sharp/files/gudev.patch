@@ -1,0 +1,16 @@
+Author: Roderich Schupp <roderich.schupp@gmail.com>
+Source: https://bugs.debian.org/755421
+Upstream: Submitted pull request, https://github.com/mono/gudev-sharp/pull/1
+Reason: Update GENERATED_SOURCES to search subdirectories
+
+--- a/gudev-sharp-3.0-3.0.0/configure.ac	2014-07-20 15:51:07.522450818 +0200
++++ b/gudev-sharp-3.0-3.0.0/configure.ac	2014-07-20 15:52:42.621907908 +0200
+@@ -17,7 +17,7 @@
+ PKG_CHECK_MODULES(BASE_DEPENDENCIES, gudev-1.0 >= $UDEV_REQUIRED_VERSION)
+ PKG_CHECK_MODULES(MONO_DEPENDENCY, mono >= $MONO_REQUIRED_VERSION, has_mono=true, has_mono=false)
+ 
+-GENERATED_SOURCES=generated/*.cs
++GENERATED_SOURCES='$(shell find generated -name \*.cs)'
+ AC_PATH_PROG(RUNTIME, mono, no)
+ AC_PATH_PROG(CSC, gmcs, no)
+ LIB_PREFIX=.so
