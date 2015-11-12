@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 SUMMARY="A .NET library for reading and writing tagging information stored in popular audio formats"
-HOMEPAGE="http://developer.novell.com/wiki/index.php/TagLib_Sharp"
+HOMEPAGE="https://github.com/mono/taglib-sharp"
 DOWNLOADS="http://download.banshee-project.org/${PN}/${PV}/${PNV}.tar.bz2"
 
 LICENCES="LGPL-2.1"
@@ -19,10 +19,8 @@ DEPENDENCIES="
         gnome? ( gnome-bindings/gnome-sharp:2[>=2.0] )
 "
 
-# FIXME: sandbox violation
-DEFAULT_SRC_CONFIGURE_PARAMS=( --disable-docs )
-
-pkg_setup() {
-    export MCS=/usr/$(exhost --target)/bin/mcs
-}
+DEFAULT_SRC_CONFIGURE_PARAMS=(
+    --disable-docs
+    MCS=/usr/$(exhost --target)/bin/mcs
+)
 
