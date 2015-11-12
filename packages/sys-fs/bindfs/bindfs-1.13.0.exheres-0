@@ -1,0 +1,28 @@
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="FUSE filesystem for directory mirroring"
+DESCRIPTION="
+bindfs is a FUSE filesystem for mirroring a directory to another
+directory, similarly to mount --bind. The permissions of the mirrored
+directory can be altered in various ways.
+Some things bindfs can be used for:
+ - Making a directory read-only.
+ - Making all executables non-executable.
+ - Sharing a directory with a list of users (or groups).
+ - Modifying permission bits using rules with chmod-like syntax.
+ - Changing the permissions with which files are created.
+"
+HOMEPAGE="http://bindfs.org"
+DOWNLOADS="${HOMEPAGE}/downloads/${PNV}.tar.gz"
+
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        sys-fs/fuse[>=2.6.0]
+"
+
