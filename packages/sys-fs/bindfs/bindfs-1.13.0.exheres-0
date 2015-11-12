@@ -24,5 +24,7 @@ MYOPTIONS=""
 DEPENDENCIES="
     build+run:
         sys-fs/fuse[>=2.6.0]
+    test:
+        dev-util/valgrind
 "
 
