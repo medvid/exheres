@@ -1,0 +1,32 @@
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require gnome.org [ suffix=.tar.xz ] vala [ vala_dep=true vala_slots=[ 0.30 ] ]
+
+SUMMARY="Serial terminal for the GNOME desktop"
+DESCRIPTION="
+moserial is a serial terminal for the GNOME desktop, optimized for logging and
+file capture. moserial is primarily intended for technical users who need to
+communicate with embedded systems, consoles, and electronic test equipment.
+Despite the technical orientation of the intended audience, moserial is designed
+to be user-friendly. Care has been taken to ensure that operations are simple to
+execute, by minimizing the number of clicks needed. The number of configuration
+options has also been kept small. To further improve efficiency, moserial also
+supports profile files to store frequently-used configurations.
+"
+
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        dev-util/intltool[>=0.35.0]
+        sys-devel/gettext
+        virtual/pkg-config
+    build+run:
+        dev-libs/glib:2[>=2.12]
+        x11-libs/gtk+:3[>=3.0.0]
+"
+
