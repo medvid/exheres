@@ -1,0 +1,26 @@
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [[ user=vivien tag=${PV} ]]
+
+SUMMARY="Status line for the i3 window manager"
+DESCRIPTION="
+i3blocks is a highly flexible status line for the i3 window manager.
+It handles clicks, signals and language-agnostic user scripts.
+"
+
+LICENCES="GPL-3"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        sys-apps/ronn
+"
+
+DEFAULT_SRC_INSTALL_PARAMS=(
+    PREFIX=/usr/$(exhost --target)
+    SYSCONFDIR=/etc
+    DATAROOTDIR=/usr/share
+)
+
