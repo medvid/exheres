@@ -1,0 +1,72 @@
+# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+MY_PN=Logic
+
+require udev-rules [ udev_files=[ "Drivers/99-SaleaeLogic.rules" ] ]
+
+export_exlib_phases pkg_setup src_install pkg_postinst
+
+SUMMARY="Saleae Logic analyzer software"
+HOMEPAGE="https://www.saleae.com/"
+DOWNLOADS="http://downloads.saleae.com/betas/${PV}/${MY_PN}+${PV}+(64-bit).zip"
+
+LICENCES="Saleae"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    run:
+        dev-libs/expat
+        dev-libs/glib
+        dev-libs/libffi
+        media-libs/fontconfig
+        media-libs/freetype:2
+        media-libs/libpng:1.6
+        sys-apps/util-linux
+        x11-libs/harfbuzz
+        x11-libs/libICE
+        x11-libs/libSM
+        x11-libs/libXau
+        x11-libs/libXau
+        x11-libs/libXcursor
+        x11-libs/libXdmcp
+        x11-libs/libXext
+        x11-libs/libXfixes
+        x11-libs/libXi
+        x11-libs/libXinerama
+        x11-libs/libXrandr
+        x11-libs/libXrender
+        x11-libs/libxcb
+"
+
+WORK="${WORKBASE}/${MY_PN} ${PV} (64-bit)"
+
+saleae-logic_pkg_setup() {
+    exdirectory --allow /opt
+}
+
+saleae-logic_src_install() {
+    local prefix=/opt/${MY_PN}
+
+    exeinto ${prefix}
+    doexe Logic libAnalyzer.so
+
+    exeinto ${prefix}/Analyzers
+    doexe Analyzers/*.so
+
+    for dir in ${prefix}/{Calibration,Databases,Errors,Settings} ; do
+        dodir ${dir}
+        edo chgrp plugdev ${IMAGE}/${dir}
+        edo chmod g+w ${IMAGE}/${dir}
+        keepdir ${dir}
+    done
+
+    dodoc linux_readme.txt
+
+    install_udev_files
+}
+
+saleae-logic_pkg_postinst() {
+    ewarn "This program requires /lib64 -> /lib compatibility symlink"
+}
