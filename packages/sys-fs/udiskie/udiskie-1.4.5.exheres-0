@@ -20,7 +20,7 @@ DEPENDENCIES="
         dev-python/PyYAML[python_abis:*(-)?]
         gnome-bindings/pygobject:3[python_abis:*(-)?]
         x11-libs/gtk+:3[gobject-introspection] [[ note = [ for tray icon and password prompt ] ]]
-        libnotify? ( x11-libs/libnotify[gobject-introspection] )
+        libnotify? ( x11-libs/libnotify[>=0.7][gobject-introspection] )
     run:
         sys-apps/udisks
 "
@@ -28,11 +28,7 @@ DEPENDENCIES="
 src_compile() {
     setup-py_src_compile
 
-    if option doc ; then
-        edo pushd doc
-        emake
-        popd
-    fi
+    option doc && emake -C doc
 }
 
 src_install() {
