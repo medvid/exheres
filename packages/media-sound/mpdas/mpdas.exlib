@@ -1,0 +1,46 @@
+# Copyright 2016 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=hrkfdn ]
+
+export_exlib_phases src_prepare src_install
+
+SUMMARY="MPD AudioScrobbler written in C++ using libcurl"
+DESCRIPTION="
+mpdas is a MPD AudioScrobbler client
+supporting the 2.0 protocol specs.
+It is written in C++ and uses libmpdclient
+to retrieve the song data from MPD and
+libcurl to post it to Last.fm.
+"
+HOMEPAGE="http://50hz.ws/mpdas/"
+
+LICENCES="BSD-3"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        media-libs/libmpdclient
+        net-misc/curl
+"
+
+DEFAULT_SRC_COMPILE_PARAMS=(
+    PREFIX=/usr/$(exhost --target)
+    MAKEPREFIX=/usr/share/man/man1
+    CONFIG=/etc
+)
+DEFAULT_SRC_INSTALL_PARAMS=( "${DEFAULT_SRC_COMPILE_PARAMS[@]}" )
+
+mpdas_src_prepare() {
+    default
+
+    edo sed -i "s/pkg-config/${PKG_CONFIG}/" Makefile
+}
+
+mpdas_src_install() {
+    default
+
+    dodoc mpdasrc.example
+}
+
