@@ -3,8 +3,6 @@
 
 require github [ user=equalsraf ] cmake [ api=2 ]
 
-export_exlib_phases src_install
-
 SUMMARY="Qt5 library and tools for interacting with Neovim."
 
 LICENCES="ISC"
@@ -25,8 +23,4 @@ DEPENDENCIES="
 CMAKE_SRC_CONFIGURE_PARAMS+=(
     -DUSE_SYSTEM_MSGPACK:BOOL=ON
 )
-
-neovim-qt_src_install() {
-    dobin bin/nvim-qt
-}
 
