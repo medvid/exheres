@@ -6,7 +6,7 @@ MY_PN="Numix"
 require github [ user=shimmerproject tag=v${PV} ] \
         option-renames [ renames=[ 'gtk gtk2' ] ]
 
-export_exlib_phases src_install
+export_exlib_phases src_compile src_install
 
 SUMMARY="A modern flat theme with a combination of light and dark elements"
 
@@ -18,7 +18,10 @@ MYOPTIONS="
 
 DEPENDENCIES="
     build:
-        dev-ruby/sass
+        gtk3? (
+            dev-libs/glib [[ description = [ for glib-compile-resources ] ]]
+            dev-ruby/sass
+        )
     run:
         gtk2? (
             x11-libs/gtk+:2
@@ -27,9 +30,11 @@ DEPENDENCIES="
         gtk3? ( x11-libs/gtk+:3[>=3.16.0] )
 "
 
-gtk-theme-numix_src_install() {
-    default
+gtk-theme-numix_src_compile() {
+    optionq gtk3 && default
+}
 
+gtk-theme-numix_src_install() {
     insinto /usr/share/themes/${MY_PN}
     doins index.theme
     optionq gtk2 && doins -r gtk-2.0
