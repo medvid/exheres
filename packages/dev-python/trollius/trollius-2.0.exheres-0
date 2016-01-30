@@ -12,7 +12,7 @@ running network clients and servers, and other related primitives.
 
 UPSTREAM_DOCUMENTATION="http://${PN}.readthedocs.org/"
 
-LICENCES="Apache-2"
+LICENCES="Apache-2.0"
 SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS=""
