@@ -1,18 +1,18 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-MY_PN=${PN%-*}
-MY_PNV=${MY_PN}-${PV}
-
-require setup-py [ import=setuptools work=${MY_PNV} ] pypi
+require github [ user=neovim project=python-client ] \
+        setup-py [ import=setuptools work=python-client-${PV} ]
 
 SUMMARY="Python client to neovim"
-HOMEPAGE="http://github.com/neovim/python-client"
 
 LICENCES="MIT"
 SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS=""
+
+# tests fail with python3: http://ix.io/okY
+RESTRICT="test"
 
 DEPENDENCIES="
     build+run:
