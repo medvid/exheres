@@ -34,7 +34,8 @@ DEPENDENCIES="
         x11-libs/libvterm
         jemalloc? ( dev-libs/jemalloc )
     suggestion:
-        dev-python/neovim-python [[ description = [ Python interface & GTK3 GUI client ] ]]
+        dev-python/neovim-python [[ description = [ Python interface ] ]]
+        app-editors/neovim-python-gui [[ description = [ GTK3 GUI client ] ]]
         app-editors/neovim-qt [[ description = [ Qt GUI client ] ]]
 "
 
