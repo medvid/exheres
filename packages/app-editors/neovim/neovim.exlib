@@ -1,4 +1,5 @@
 # Copyright 2014 Nikolay Orliuk
+# Copyright 2015-2016 Volodymyr Medvid
 # Distributed under the terms of the GNU General Public License v2
 
 require github [ user=neovim tag=v${PV} ] cmake [ api=2 cmake_minimum_version=2.8.7 ]
@@ -37,7 +38,7 @@ DEPENDENCIES="
         app-editors/neovim-qt [[ description = [ Qt GUI client ] ]]
 "
 
-BUGS_TO="virkony@gmail.com"
+BUGS_TO="vmedvid@riseup.net"
 
 CMAKE_SRC_CONFIGURE_OPTION_DISABLE_FINDS+=(
     JeMalloc
