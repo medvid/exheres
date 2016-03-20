@@ -16,6 +16,11 @@ MYOPTIONS=""
 DEPENDENCIES="
     build:
         sys-apps/ronn
+    suggestion:
+        app-laptop/acpi [[ description = [ required by battery script ] ]]
+        sys-apps/iproute2 [[ description = [ required by iface script ] ]]
+        sys-apps/sysstat [[ description = [ required by cpu_usage script ] ]]
+        sys-sound/alsa-utils [[ description = [ required by volume script ] ]]
 "
 
 DEFAULT_SRC_INSTALL_PARAMS=(
