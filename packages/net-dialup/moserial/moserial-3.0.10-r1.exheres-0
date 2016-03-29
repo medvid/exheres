@@ -1,7 +1,7 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require gnome.org [ suffix=.tar.xz ] vala [ vala_dep=true vala_slots=[ 0.30 ] ]
+require gnome.org [ suffix=.tar.xz ] vala [ vala_dep=true ]
 
 SUMMARY="Serial terminal for the GNOME desktop"
 DESCRIPTION="
