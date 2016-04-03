@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 require github [ user=neovim project=python-client ] \
-        setup-py [ import=setuptools work=python-client-${PV} ]
+        setup-py [ import=setuptools work=python-client-${PV} test=nose ]
 
 SUMMARY="Python client to neovim"
 
@@ -10,9 +10,6 @@ LICENCES="MIT"
 SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS=""
-
-# tests fail with python3: http://ix.io/okY
-RESTRICT="test"
 
 DEPENDENCIES="
     build+run:
