@@ -1,0 +1,26 @@
+# Copyright 2016 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=creaktive tag=v${PV} ] \
+        perl-module [ module_author=SYP ]
+
+SUMMARY="CPU/RAM/battery stats chart bar for tmux"
+DESCRIPTION="
+Fancy resource usage charts to put into the tmux status line.
+The CPU utilization history chart is tinted with the following colors
+to reflect the system memory allocation.
+"
+
+SLOT="0"
+MYOPTIONS=""
+
+# Failed 1/18 test programs. 10/21 subtests failed.
+RESTRICT="test"
+
+DEPENDENCIES="
+    build:
+        dev-perl/Module-Build[>=0.28]
+    build+run:
+        dev-perl/Term-ANSIColor
+"
+
