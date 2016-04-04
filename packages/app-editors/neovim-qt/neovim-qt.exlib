@@ -1,7 +1,7 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=equalsraf ] cmake [ api=2 ]
+require github [ user=equalsraf tag=v${PV} ] cmake [ api=2 ] freedesktop-desktop
 
 SUMMARY="Qt5 library and tools for interacting with Neovim."
 
@@ -13,6 +13,9 @@ MYOPTIONS=""
 RESTRICT="test"
 
 DEPENDENCIES="
+    build:
+        app-doc/doxygen
+        dev-lang/python:*
     build+run:
         dev-libs/msgpack
         x11-libs/qtbase:5[gui]
