@@ -23,25 +23,31 @@ MYOPTIONS="
 
 DEPENDENCIES="
     build+run:
+        dev-lang/LuaJIT
         dev-libs/libtermkey
         dev-libs/libuv[>=1.2.0]
         dev-libs/msgpack
         dev-libs/unibilium
-        dev-lang/LuaJIT
         dev-lua/LuaBitOp[lua_abis:5.1]
+        dev-lua/libmpack[lua_abis:5.1]
         dev-lua/lpeg[lua_abis:5.1]
-        dev-lua/MessagePack[lua_abis:5.1]
         x11-libs/libvterm
         jemalloc? ( dev-libs/jemalloc )
     suggestion:
-        dev-python/neovim-python [[ description = [ Python interface ] ]]
         app-editors/neovim-python-gui [[ description = [ GTK3 GUI client ] ]]
         app-editors/neovim-qt [[ description = [ Qt GUI client ] ]]
+        dev-python/neovim-python [[ description = [ Python interface ] ]]
 "
 
 BUGS_TO="vmedvid@riseup.net"
 
-CMAKE_SRC_CONFIGURE_OPTION_DISABLE_FINDS+=(
-    JeMalloc
+CMAKE_SRC_CONFIGURE_OPTION_ENABLES+=(
+    'jemalloc JEMALLOC'
 )
+
+src_prepare() {
+    # make sure we don't build 3rdparty deps
+    edo rm -r "${CMAKE_SOURCE}"/third-party
+    cmake_src_prepare
+}
 
