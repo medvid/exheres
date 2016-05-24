@@ -3,6 +3,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 require github [ user=IgnorantGuru ]
+require gtk-icon-cache freedesktop-desktop freedesktop-mime
 
 SUMMARY="multi-panel tabbed file manager"
 HOMEPAGE="http://ignorantguru.github.io/spacefm/"
@@ -53,5 +54,17 @@ DEFAULT_SRC_CONFIGURE_OPTION_WITHS=( providers:gtk3 )
 src_prepare() {
     edo intltoolize --force --automake
     default
+}
+
+pkg_postinst() {
+    freedesktop-mime_pkg_postinst
+    freedesktop-desktop_pkg_postinst
+    gtk-icon-cache_pkg_postinst
+}
+
+pkg_postrm() {
+    freedesktop-mime_pkg_postrm
+    freedesktop-desktop_pkg_postrm
+    gtk-icon-cache_pkg_postrm
 }
 
