@@ -37,3 +37,8 @@ DEFAULT_SRC_PREPARE_PATCHES=(
     "${FILES}"/${PNV}-stat.patch
 )
 
+src_prepare() {
+    edo intltoolize --force --automake
+    default
+}
+
