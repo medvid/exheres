@@ -31,6 +31,8 @@ DEPENDENCIES="
         sys-apps/util-linux
         providers:eudev? ( sys-apps/eudev )
         providers:systemd? ( sys-apps/systemd )
+    run:
+        sys-apps/acl
     suggestion:
         gnome-desktop/zenity [[ description = [ for devmon (device monitor) popups in case spacefm
                                                 is not used (needed for '--unmount-removable') ] ]]
