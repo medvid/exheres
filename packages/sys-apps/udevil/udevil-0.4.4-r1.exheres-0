@@ -31,6 +31,14 @@ DEPENDENCIES="
         sys-apps/util-linux
         providers:eudev? ( sys-apps/eudev )
         providers:systemd? ( sys-apps/systemd )
+    suggestion:
+        gnome-desktop/zenity [[ description = [ for devmon (device monitor) popups in case spacefm
+                                                is not used (needed for '--unmount-removable') ] ]]
+        net-fs/cifs-utils    [[ description = [ mount samba shares ] ]]
+        net-fs/curlftpfs     [[ description = [ mount ftp shares ] ]]
+        net-fs/davfs2        [[ description = [ mount WebDAV resources ] ]]
+        net-fs/nfs-utils     [[ description = [ mount nfs shares ] ]]
+        sys-fs/sshfs-fuse    [[ description = [ mount sftp shares ] ]]
 "
 
 DEFAULT_SRC_PREPARE_PATCHES=(
