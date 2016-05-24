@@ -33,3 +33,7 @@ DEPENDENCIES="
         providers:systemd? ( sys-apps/systemd )
 "
 
+DEFAULT_SRC_PREPARE_PATCHES=(
+    "${FILES}"/${PNV}-stat.patch
+)
+
