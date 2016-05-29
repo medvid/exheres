@@ -50,3 +50,8 @@ DEFAULT_SRC_CONFIGURE_PARAMS=(
 DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=( startup-notification )
 DEFAULT_SRC_CONFIGURE_OPTION_WITHS=( providers:gtk3 )
 
+src_prepare() {
+    edo intltoolize --force --automake
+    default
+}
+
