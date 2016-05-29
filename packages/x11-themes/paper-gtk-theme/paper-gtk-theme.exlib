@@ -1,7 +1,7 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=snwh ]
+require github [ user=snwh tag=v${PV} ]
 
 export_exlib_phases src_install
 
