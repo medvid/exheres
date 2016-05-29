@@ -35,8 +35,10 @@ DEPENDENCIES="
         providers:eudev? ( sys-apps/eudev )
         providers:systemd? ( sys-apps/systemd )
     suggestion:
-        app-admin/sudo  [[ description = [ Used to perform root actions ] ]]
-        sys-apps/udevil [[ description = [ Drive mounting               ] ]]
+        app-admin/sudo   [[ description = [ Used to perform root actions ] ]]
+        sys-apps/dbus    [[ description = [ Optional dbus support ] ]]
+        sys-apps/udevil  [[ description = [ Drive mounting               ] ]]
+        sys-process/lsof [[ description = [ For listing device processes ] ]]
 "
 
 DEFAULT_SRC_CONFIGURE_PARAMS=(
