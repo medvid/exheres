@@ -15,7 +15,10 @@ MYOPTIONS="
 
 DEPENDENCIES="
     run:
-        gtk2? ( x11-themes/gtk-engines-murrine )
+        gtk2? (
+            gnome-desktop/gnome-themes-standard[gtk2]
+            x11-themes/gtk-engines-murrine
+        )
 "
 
 paper-gtk-theme_src_install() {
