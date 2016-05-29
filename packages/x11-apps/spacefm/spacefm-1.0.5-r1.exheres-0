@@ -13,6 +13,7 @@ SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS="
     startup-notification
+    video-thumbnails [[ description = [ Support for video thumbnails ] ]]
     ( providers: gtk2 gtk3 ) [[ number-selected = exactly-one ]]
     ( providers: eudev systemd ) [[ number-selected = exactly-one ]]
 "
@@ -30,6 +31,7 @@ DEPENDENCIES="
         x11-libs/libX11
         x11-misc/shared-mime-info
         startup-notification? ( x11-libs/startup-notification )
+        video-thumbnails? ( media-video/ffmpegthumbnailer )
         providers:gtk2? ( x11-libs/gtk+:2 )
         providers:gtk3? ( x11-libs/gtk+:3 )
         providers:eudev? ( sys-apps/eudev )
@@ -47,10 +49,12 @@ DEFAULT_SRC_CONFIGURE_PARAMS=(
     --disable-desktop-integration
     --disable-hal
     --disable-pixmaps
-    --disable-video-thumbnails
 )
 
-DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=( startup-notification )
+DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=(
+    startup-notification
+    video-thumbnails
+)
 DEFAULT_SRC_CONFIGURE_OPTION_WITHS=( providers:gtk3 )
 
 src_prepare() {
