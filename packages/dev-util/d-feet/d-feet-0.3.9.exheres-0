@@ -2,7 +2,7 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require gnome.org [ suffix=.tar.xz ] python [ blacklist='3' has_bin=true ]
+require gnome.org [ suffix=tar.xz ] python [ blacklist='3' has_bin=true ]
 
 SUMMARY="D-Feet is a powerful D-Bus debugger"
 HOMEPAGE="https://wiki.gnome.org/DFeet/"

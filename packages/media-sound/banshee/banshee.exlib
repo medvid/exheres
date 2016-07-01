@@ -12,7 +12,7 @@ if ever is_scm ; then
     SCM_EXTERNAL_REFS="src/Hyena:hyena"
 fi
 
-require gnome.org [ suffix=.tar.xz ]
+require gnome.org [ suffix=tar.xz ]
 require freedesktop-desktop gtk-icon-cache \
         autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
 
