@@ -2,7 +2,7 @@
 # Copyright 2015-2016 Volodymyr Medvid
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=neovim tag=v${PV} ] cmake [ api=2 cmake_minimum_version=2.8.7 ]
+require alternatives github [ user=neovim tag=v${PV} ] cmake [ api=2 cmake_minimum_version=2.8.7 ]
 
 SUMMARY="Vim's rebirth for the 21st century"
 DESCRIPTION="
@@ -49,5 +49,12 @@ src_prepare() {
     # make sure we don't build 3rdparty deps
     edo rm -r "${CMAKE_SOURCE}"/third-party
     cmake_src_prepare
+}
+
+src_install() {
+    default
+
+    alternatives_for vi ${PN} 75 /usr/$(exhost --target)/bin/vi nvim
+    alternatives_for vi ${PN} 75 /usr/share/man/man1/vi.1 nvim.1
 }
 
