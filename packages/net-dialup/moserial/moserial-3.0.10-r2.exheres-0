@@ -27,6 +27,7 @@ DEPENDENCIES="
         virtual/pkg-config
     build+run:
         dev-libs/glib:2[>=2.12]
+        gnome-desktop/gsettings-desktop-schemas
         x11-libs/gtk+:3[>=3.0.0]
 "
 
