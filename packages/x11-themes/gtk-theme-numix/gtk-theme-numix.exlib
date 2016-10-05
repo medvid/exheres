@@ -1,10 +1,7 @@
 # Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-MY_PN="Numix"
-
-require github [ user=shimmerproject tag=v${PV} ] \
-        option-renames [ renames=[ 'gtk gtk2' ] ]
+require github [ user=numixproject ] option-renames [ renames=[ 'gtk gtk2' ] ]
 
 export_exlib_phases src_compile src_install
 
@@ -27,17 +24,18 @@ DEPENDENCIES="
             x11-libs/gtk+:2
             x11-themes/gtk-engines-murrine
         )
-        gtk3? ( x11-libs/gtk+:3[>=3.16.0] )
+        gtk3? ( x11-libs/gtk+:3[>=3.20.0] )
 "
 
-gtk-theme-numix_src_compile() {
+numix-gtk-theme_src_compile() {
     optionq gtk3 && default
 }
 
-gtk-theme-numix_src_install() {
-    insinto /usr/share/themes/${MY_PN}
-    doins index.theme
-    optionq gtk2 && doins -r gtk-2.0
-    optionq gtk3 && doins -r gtk-3.0
+numix-gtk-theme_src_install() {
+    # Note, not using doins because need to dereference assets symlinks
+    local dest="${IMAGE}usr/share/themes/Numix"
+    edo mkdir -p "${dest}"
+    optionq gtk2 && edo cp -r --dereference src/gtk-2.0 ${dest}/gtk-2.0
+    optionq gtk3 && edo cp -r --dereference src/gtk-3.20 ${dest}/gtk-3.0
 }
 
