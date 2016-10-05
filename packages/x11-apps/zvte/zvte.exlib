@@ -13,7 +13,8 @@ DEPENDENCIES="
     build:
         virtual/pkg-config
     build+run:
-        dev-libs/vte:2.91
+        dev-libs/pcre2
+        dev-libs/vte:2.91[>=0.46.0]
         x11-libs/gtk+:3
 "
 
