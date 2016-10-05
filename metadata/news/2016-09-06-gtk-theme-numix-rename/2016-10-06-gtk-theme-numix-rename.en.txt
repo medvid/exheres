@@ -1,0 +1,14 @@
+Title: gtk-theme-numix rename
+Author: Volodymyr Medvid <vmedvid@riseup.net>
+Content-Type: text/plain
+Posted: 2016-10-06
+Revision: 1
+News-Item-Format: 1.0
+Display-If-Installed: x11-themes/gtk-theme-numix
+
+x11-themes/gtk-theme-numix was renamed as x11-themes/numix-gtk-theme
+
+gtk-theme-numix package was renamed to follow upstream repository name.
+Please uninstall the old package and install the new one instead:
+
+    cave resolve \!x11-themes/gtk-theme-numix x11-themes/numix-gtk-theme
