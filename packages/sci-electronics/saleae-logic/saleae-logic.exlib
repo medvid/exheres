@@ -1,15 +1,15 @@
-# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Copyright 2015-2016 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
 MY_PN=Logic
 
 require udev-rules [ udev_files=[ "Drivers/99-SaleaeLogic.rules" ] ]
 
-export_exlib_phases pkg_setup src_install pkg_postinst
+export_exlib_phases pkg_setup src_install
 
 SUMMARY="Saleae Logic analyzer software"
 HOMEPAGE="https://www.saleae.com/"
-DOWNLOADS="http://downloads.saleae.com/betas/${PV}/${MY_PN}+${PV}+(64-bit).zip"
+DOWNLOADS="http://downloads.saleae.com/logic/${PV}/${MY_PN}%20${PV}%20(64-bit).zip"
 
 LICENCES="Saleae"
 SLOT="0"
@@ -20,6 +20,7 @@ DEPENDENCIES="
         dev-libs/expat
         dev-libs/glib
         dev-libs/libffi
+        group/plugdev
         media-libs/fontconfig
         media-libs/freetype:2
         media-libs/libpng:1.6
@@ -67,6 +68,3 @@ saleae-logic_src_install() {
     install_udev_files
 }
 
-saleae-logic_pkg_postinst() {
-    ewarn "This program requires /lib64 -> /lib compatibility symlink"
-}
