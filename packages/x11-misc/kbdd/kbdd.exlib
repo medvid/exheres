@@ -3,7 +3,7 @@
 # Based in part upon 'kbdd-0.7.ebuild' from Gentoo, which is:
 #     Copyright 1999-2012 Gentoo Foundation
 
-require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
+require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.15 ] ]
 require github [ user=qnikst tag=v${PV} ]
 
 SUMMARY="Very simple layout switcher"
