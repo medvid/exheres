@@ -21,7 +21,7 @@ DEPENDENCIES="
         sys-apps/dbus[>=1.0]
         x11-libs/gtk+:3[>=3.9.4][gobject-introspection]
     suggestion:
-        gnome-desktop/libwnck [[ description = [ display application icons ] ]]
+        gnome-desktop/libwnck:3.0[gobject-introspection] [[ description = [ display application icons ] ]]
 "
 
 # FIXME: do not assume python2 is 2.7
