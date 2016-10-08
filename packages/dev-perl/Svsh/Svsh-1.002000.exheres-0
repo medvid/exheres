@@ -1,0 +1,29 @@
+# Copyright 2016 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require perl-module [ module_author=IDOPEREL ]
+
+SUMMARY="Process supervision shell for daemontools, perp, s6 and runit"
+DESCRIPTION="
+svsh is a command line shell for process supervision suites of the
+daemontools family. Currently, it supports daemontools, perp, s6 and runit.
+It provides a unified interface allowing easy inspection and manipulation
+of services (i.e. processes) managed by supported supervision suites.
+"
+
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        dev-perl/Getopt-Compact
+        dev-perl/Moo
+        dev-perl/Proc-ProcessTable [[ note = [ Proc::Killall ] ]]
+        dev-perl/Term-ANSIColor
+        dev-perl/Term-ShellUI
+        dev-perl/namespace-clean
+    suggestion:
+        dev-perl/Term-ReadLine-Gnu
+"
+
