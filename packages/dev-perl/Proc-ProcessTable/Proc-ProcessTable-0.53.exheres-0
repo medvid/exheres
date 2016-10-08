@@ -1,0 +1,23 @@
+# Copyright 2016 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require perl-module [ module_author=JWB ]
+
+SUMMARY="Consistent interface to Unix process table information"
+DESCRIPTION="
+This module is a first crack at providing a consistent interface to
+Unix (and maybe other multitasking OS's) process table information.
+The impetus for this came about with my frustration at having to parse
+the output of various systems' ps commands to check whether specific
+processes were running on different boxes at a larged mixed Unix site.
+The output format of ps was different on each OS, and sometimes
+changed with each new release of an OS. Also, running a ps subprocess
+from within a perl or shell script and parsing the output was not a
+very efficient or aesthetic way to do things.
+"
+
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+DEPENDENCIES=""
+
