@@ -14,5 +14,9 @@ a usage string or within the script POD.
 SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS=""
-DEPENDENCIES=""
+
+DEPENDENCIES="
+    test:
+        dev-perl/Text-Table
+"
 
