@@ -1,0 +1,16 @@
+# Copyright 2016 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require perl-module [ module_author=SHLOMIF ]
+
+SUMMARY="This module can be used to render plaintext/ASCII-art/Unicode-art tables"
+
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        dev-perl/Text-Aligner
+"
+
