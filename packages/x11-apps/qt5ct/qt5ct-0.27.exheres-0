@@ -1,0 +1,29 @@
+# Copyright 2016 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require qmake [ slot=5 ] sourceforge
+
+SUMMARY="Qt5 Configuration Tool"
+DESCRIPTION="
+This program allows users to configure Qt5 settings (theme, font, icons, etc.)
+under DE/WM without Qt integration.
+"
+
+LICENCES="BSD-2"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        x11-libs/qttools[>=5.4.0]
+    build+run:
+        x11-libs/qtbase[>=5.4.0]
+        x11-libs/qtsvg[>=5.4.0]
+"
+
+EQMAKE_PARAMS=(
+    PREFIX="/usr/$(exhost --target)"
+    DATADIR="/usr/share"
+)
+
