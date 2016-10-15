@@ -1,0 +1,34 @@
+# Copyright 2016 Julian Ospald <hasufell@posteo.de>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=tarruda ]
+require lua [ whitelist="5.3 5.2 5.1" multiunpack=true ]
+
+SUMMARY="Simple implementation of msgpack in C (lua bindings)"
+
+LICENCES="MIT"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS=""
+
+compile_one_multibuild() {
+    emake -C binding/lua \
+        USE_SYSTEM_LUA=yes \
+        LUA_VERSION_MAJ_MIN=$(lua_get_abi)
+}
+
+install_one_multibuild() {
+    emake -C binding/lua \
+        DESTDIR="${IMAGE}" \
+        USE_SYSTEM_LUA=yes \
+        LUA_VERSION_MAJ_MIN=$(lua_get_abi) \
+        install
+
+    emagicdocs
+}
+
+# tests require busted
+test_one_multibuild() {
+    :
+}
+
