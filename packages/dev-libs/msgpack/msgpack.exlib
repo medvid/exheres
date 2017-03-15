@@ -22,6 +22,9 @@ HOMEPAGE="http://msgpack.org/"
 LICENCES="Apache-2.0"
 
 DEPENDENCIES="
+    build+run:
+        dev-libs/boost
+        sys-libs/zlib
     test:
         dev-cpp/gtest
 "
