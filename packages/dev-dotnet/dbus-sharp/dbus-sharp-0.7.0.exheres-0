@@ -1,8 +1,0 @@
-# Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
-# Distributed under the terms of the GNU General Public License v2
-
-require dbus-sharp
-
-SLOT="1"
-PLATFORMS="~amd64"
-
