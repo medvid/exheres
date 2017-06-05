@@ -17,7 +17,7 @@ MYOPTIONS=""
 
 DEPENDENCIES="
     run:
-        gnome-desktop/gnome-icon-theme
+        gnome-desktop/adwaita-icon-theme
 "
 
 src_install() {
