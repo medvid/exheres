@@ -13,7 +13,7 @@ MYOPTIONS=""
 
 DEPENDENCIES="
     run:
-        gnome-desktop/gnome-icon-theme
+        gnome-desktop/adwaita-icon-theme
         x11-themes/hicolor-icon-theme
 "
 
