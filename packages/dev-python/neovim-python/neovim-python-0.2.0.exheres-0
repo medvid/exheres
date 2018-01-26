@@ -22,3 +22,9 @@ DEPENDENCIES="
         app-editors/neovim[>=0.1.6]
 "
 
+test_one_multibuild() {
+    # Tries to write to XDG_DATA_HOME
+   export XDG_DATA_HOME="${TEMP}"/testdata
+   setup-py_test_one_multibuild
+}
+
