@@ -1,0 +1,21 @@
+# Copyright 2018 Volodymyr Medvid
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=rilian-la-te ] cmake [ api=2 ]
+
+SUMMARY="Locale program for musl libc"
+
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        sys-libs/musl
+"
+
+CMAKE_SRC_CONFIGURE_PARAMS=(
+    -DCMAKE_INSTALL_SYSCONFDIR=/etc
+)
+
