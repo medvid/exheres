@@ -25,7 +25,7 @@ MYOPTIONS=""
 DEPENDENCIES="
     build:
         virtual/pkg-config
-        x11-proto/xproto
+        x11-proto/xorgproto
     build+run:
         dev-libs/glib:2
         x11-libs/libX11
