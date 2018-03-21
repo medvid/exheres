@@ -14,7 +14,7 @@ MYOPTIONS=""
 DEPENDENCIES="
     build+run:
         dev-python/greenlet[python_abis:*(-)?]
-        dev-python/msgpack-python[>=0.4.0][python_abis:*(-)?]
+        dev-python/msgpack[>=0.4.0][python_abis:*(-)?]
         python_abis:2.7? (
             dev-python/trollius[python_abis:2.7]
         )
