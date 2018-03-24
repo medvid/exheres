@@ -58,8 +58,8 @@ saleae-logic_src_install() {
 
     for dir in ${prefix}/{Calibration,Databases,Errors,Settings} ; do
         dodir ${dir}
-        edo chgrp plugdev ${IMAGE}/${dir}
-        edo chmod g+w ${IMAGE}/${dir}
+        edo chgrp plugdev "${IMAGE}"${dir}
+        edo chmod g+w "${IMAGE}"${dir}
         keepdir ${dir}
     done
 
