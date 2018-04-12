@@ -40,6 +40,10 @@ DEPENDENCIES="
 
 BUGS_TO="vmedvid@riseup.net"
 
+CMAKE_SRC_CONFIGURE_PARAMS+=(
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo
+)
+
 CMAKE_SRC_CONFIGURE_OPTION_ENABLES+=(
     'jemalloc JEMALLOC'
 )
