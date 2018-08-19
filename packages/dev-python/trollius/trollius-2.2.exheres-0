@@ -1,7 +1,7 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=haypo ] setup-py [ import=setuptools ] pypi
+require github [ user=haypo ] setup-py [ blacklist="3.7" import=setuptools ] pypi
 
 SUMMARY="Port of the Tulip project (asyncio module, PEP 3156) on Python 2"
 DESCRIPTION="
@@ -19,6 +19,7 @@ MYOPTIONS=""
 
 DEPENDENCIES="
     build+run:
+        dev-python/six[python_abis:*(-)?]
         python_abis:2.7? ( dev-python/futures[python_abis:2.7] )
     test:
         dev-python/mock[python_abis:*(-)?]
