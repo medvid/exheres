@@ -33,20 +33,20 @@ DEPENDENCIES=""
 RESTRICT="test"
 
 uboot-mkimage_src_prepare() {
-    # tools-only target is broken again after 5114879
-    if ever is_scm ; then
-        edo mkdir -p include/config
-        edo touch include/config/auto.conf
-    fi
+    edo sed -e "s/pkg-config/$(exhost --tool-prefix)pkg-config/g" \
+        -i "${WORK}/tools/Makefile" \
+        -i "${WORK}/scripts/kconfig/Makefile" \
+        -i "${WORK}/scripts/kconfig/lxdialog/check-lxdialog.sh"
 }
 
 uboot-mkimage_src_compile() {
     emake \
         HOSTSTRIP=: \
         HOSTCC="${CC}" \
-        HOSTCFLAGS="${CFLAGS} ${CPPFLAGS}"' $(HOSTCPPFLAGS)' \
+        HOSTCFLAGS="${CFLAGS}" \
         HOSTLDFLAGS="${LDFLAGS}" \
-        tools-only
+        CROSS_COMPILE="$(exhost --tool-prefix)" \
+        defconfig tools-only
 }
 
 uboot-mkimage_src_install() {
