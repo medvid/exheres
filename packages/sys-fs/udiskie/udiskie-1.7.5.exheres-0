@@ -26,6 +26,8 @@ DEPENDENCIES="
         x11-libs/libnotify[>=0.7][gobject-introspection]
     run:
         sys-apps/udisks
+    suggestion:
+        x11-apps/xdg-utils [[ description = [ Open file manager with xdg-open ] ]]
 "
 
 src_compile() {
