@@ -2,14 +2,17 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require pypi setup-py [ import=setuptools has_bin=true multibuild=false ]
+require pypi setup-py [ import=setuptools blacklist=2 has_bin=true multibuild=false ] gtk-icon-cache
 
 SUMMARY="An automatic disk mounting service using udisks"
 
 LICENCES="MIT"
 SLOT="0"
 PLATFORMS="~amd64"
-MYOPTIONS="doc libnotify"
+MYOPTIONS="doc"
+
+# test suite requires python-keyutils and dev-libs/libappindicator[gobject-introspection]
+RESTRICT="test"
 
 DEPENDENCIES="
     build:
@@ -20,7 +23,7 @@ DEPENDENCIES="
         dev-python/PyYAML[python_abis:*(-)?]
         gnome-bindings/pygobject:3[python_abis:*(-)?]
         x11-libs/gtk+:3[gobject-introspection] [[ note = [ for tray icon and password prompt ] ]]
-        libnotify? ( x11-libs/libnotify[>=0.7][gobject-introspection] )
+        x11-libs/libnotify[>=0.7][gobject-introspection]
     run:
         sys-apps/udisks
 "
@@ -35,5 +38,13 @@ src_install() {
     setup-py_src_install
 
     option doc && doman doc/${PN}.8
+}
+
+pkg_postinst() {
+    gtk-icon-cache_pkg_postinst
+}
+
+pkg_postrm() {
+    gtk-icon-cache_pkg_postrm
 }
 
