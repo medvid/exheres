@@ -3,14 +3,13 @@
 
 require github [ user=equalsraf tag=v${PV} ] cmake [ api=2 ] freedesktop-desktop
 
+export_exlib_phases src_test
+
 SUMMARY="Qt5 library and tools for interacting with Neovim."
 
 LICENCES="ISC"
 SLOT="0"
 MYOPTIONS=""
-
-# FIXME: sydbox violation
-RESTRICT="test"
 
 DEPENDENCIES="
     build:
@@ -26,4 +25,20 @@ DEPENDENCIES="
 CMAKE_SRC_CONFIGURE_PARAMS+=(
     -DUSE_SYSTEM_MSGPACK:BOOL=ON
 )
+CMAKE_SRC_CONFIGURE_TESTS=(
+    '-DENABLE_TESTS:BOOL=TRUE -DENABLE_TESTS:BOOL=FALSE'
+)
+
+neovim-qt_src_test() {
+    esandbox allow_net --connect "unix:${TEMP%/}/**"
+    esandbox allow_net --connect "unix-abstract:/tmp/.X11-unix/X0"
+    esandbox allow_net --connect "inet:127.0.0.1@1024-65535"
+
+    # several tests connect to X server
+    edo ctest -V -E "tst_shell|test_cell|test_shellcontents|test_shellwidget|bench_scroll|bench_cell"
+
+    esandbox disallow_net --connect "inet:127.0.0.1@1024-65535"
+    esandbox disallow_net --connect "unix-abstract:/tmp/.X11-unix/X0"
+    esandbox disallow_net --connect "unix:${TEMP%/}/**"
+}
 
