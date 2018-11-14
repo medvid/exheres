@@ -1,0 +1,15 @@
+Title: medvid repository moved to Exherbo GitLab
+Author: Volodymyr Medvid <vmedvid@riseup.net>
+Content-Type: text/plain
+Posted: 2018-11-15
+Revision: 1
+News-Item-Format: 1.0
+
+The ::medvid unofficial repository moved from https://github.com/medvid/exheres
+to https://gitlab.exherbo.org/medvid/medvid.
+
+Update your sync setting as such:
+	sync = git+https://gitlab.exherbo.org/medvid/medvid
+
+The master branch on GitHub mirror is automatically updated on each GitLab push,
+so it is still possible to use the existing sync url.
