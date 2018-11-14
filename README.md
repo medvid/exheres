@@ -8,5 +8,5 @@ Please direct all contributions to [Exherbo GitLab](https://gitlab.exherbo.org/m
 
 To submit patches: https://exherbo.org/docs/gitlab.html
 
-All changes must be pushed to GitLab repo, GitHub mirror is updated automatically.
+All changes must be pushed to GitLab repo, [GitHub mirror](https://github.com/medvid/exheres) is updated automatically.
 
