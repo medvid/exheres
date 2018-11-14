@@ -22,6 +22,7 @@ DEPENDENCIES="
         app-editors/neovim[>=0.3.1]
     test:
         app-editors/neovim[>=0.3.1]
+        dev-python/pyuv[python_abis:*(-)?]
 "
 
 test_one_multibuild() {
