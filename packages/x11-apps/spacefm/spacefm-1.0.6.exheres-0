@@ -46,6 +46,10 @@ DEPENDENCIES="
         sys-process/lsof [[ description = [ For listing device processes ] ]]
 "
 
+DEFAULT_SRC_PREPARE_PATCHES=(
+    "${FILES}/spacefm-glibc-2.28.patch"
+)
+
 DEFAULT_SRC_CONFIGURE_PARAMS=(
     --enable-largefile
     --enable-inotify
