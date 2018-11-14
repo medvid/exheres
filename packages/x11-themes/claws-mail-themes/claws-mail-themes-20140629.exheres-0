@@ -1,7 +1,7 @@
 # Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
+require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 1.14 1.15 1.16 ] ]
 
 SUMMARY="Collection of icon themes for Claws Mail"
 HOMEPAGE="http://www.claws-mail.org/themes.php"
