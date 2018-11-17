@@ -1,0 +1,50 @@
+# Copyright 2018 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+# Based in part on "s6-exherbo.exlib", which is
+#   Copyright 2018 Bjorn Pagen <bjornpagen@gmail.com>
+# Based in part on "beginning-scm.exheres-0", which is
+#   Copyright 2015-2018 Kylie McClain <somasis@exherbo.org>
+
+require alternatives github [ user=medvid pn=rc ]
+
+export_exlib_phases src_compile src_install
+
+SUMMARY="s6/s6-rc service management database"
+
+LICENCES="BSD-0"
+SLOT="0"
+
+MYOPTIONS=""
+
+DEPENDENCIES="
+    run:
+        group/log
+        sys-apps/s6
+        sys-apps/s6-linux-utils
+        sys-apps/s6-linux-init
+        sys-apps/s6-portable-utils
+        sys-apps/s6-rc
+        user/log
+"
+
+DEFAULT_SRC_INSTALL_PARAMS=(
+    DESTDIR="${IMAGE}"
+)
+
+s6-medvid_src_compile() {
+    :
+}
+
+s6-medvid_src_install() {
+    dodir /etc/rc
+    cp -r --preserve=mode * .gitignore "${IMAGE}/etc/rc"
+
+    alternatives_for \
+        init ${PN} 100 \
+        "/usr/$(exhost --target)/bin/init"       /etc/rc/init    \
+        "/usr/$(exhost --target)/bin/reboot"     s6-reboot       \
+        "/usr/$(exhost --target)/bin/poweroff"   s6-poweroff     \
+        "/usr/$(exhost --target)/bin/shutdown"   s6-poweroff     \
+        "/usr/$(exhost --target)/bin/halt"       s6-halt
+}
+

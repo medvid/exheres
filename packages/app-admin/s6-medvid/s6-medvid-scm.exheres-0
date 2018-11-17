@@ -1,0 +1,9 @@
+# Copyright 2018 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+# Based in part on "s6-exherbo-scm.exheres-0", which is
+#   Copyright 2018 Bjorn Pagen <bjornpagen@gmail.com>
+
+require s6-medvid
+
+PLATFORMS="~amd64 ~arm ~armv7 ~x86"
+
