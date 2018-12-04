@@ -1,0 +1,23 @@
+Upstream: fixed in SVN trunk: https://sourceforge.net/p/splix/code/273/
+Reason: Fixed gcc 4.5 incompatibility in src/ppdfile.cpp (Debian bug #565097)
+
+--- a/src/ppdfile.cpp
++++ b/src/ppdfile.cpp
+@@ -15,7 +15,7 @@
+  *  Free Software Foundation, Inc.,
+  *  59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+  *
+- *  $Id: ppdfile.cpp 256 2008-11-30 14:20:22Z ap2c $
++ *  $Id: ppdfile.cpp 273 2010-07-29 15:34:19Z tillkamppeter $
+  * 
+  */
+ #include "ppdfile.h"
+@@ -282,7 +282,7 @@
+  * OpĂŠrateur d'assignation
+  * Assignment operator
+  */
+-void PPDFile::Value::operator = (const PPDFile::Value::Value &val)
++void PPDFile::Value::operator = (const PPDFile::Value &val)
+ {
+     if (_preformatted)
+         delete[] _preformatted;

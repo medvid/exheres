@@ -1,0 +1,32 @@
+# Copyright 2018 Volodymyr Medvid <vmedvid@riseup.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require sourceforge
+
+export_exlib_phases src_prepare
+
+SUMMARY="Set of CUPS printer drivers for SPL printers"
+HOMEPAGE="http://splix.ap2c.org/"
+
+LICENCES="GPL-2"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        net-print/cups
+"
+
+DEFAULT_SRC_COMPILE_PARAMS=( CXX=${CXX} MODE=optimized DISABLE_JBIG=1 )
+DEFAULT_SRC_INSTALL_PARAMS=( "${DEFAULT_SRC_COMPILE_PARAMS[@]}" )
+
+splix_src_prepare() {
+    # Replace hard-coded g++ call with prefixed CXX
+    # Do not strip installed binaries
+    edo sed -i rules.mk \
+        -e 's/g++/\$(CXX)/' \
+        -e '/$(Q)install/s/ -s / /'
+
+    default
+}
+
