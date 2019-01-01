@@ -20,7 +20,7 @@ DEPENDENCIES="
     build:
         virtual/pkg-config
     build+run:
-        dev-libs/unibilium[>=0.1.0]
+        dev-libs/unibilium:=[>=0.1.0]
 "
 
 DEFAULT_SRC_COMPILE_PARAMS=( PREFIX=/usr/$(exhost --target) MANDIR=/usr/share/man )
