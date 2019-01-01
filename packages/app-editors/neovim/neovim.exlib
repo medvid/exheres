@@ -1,5 +1,5 @@
 # Copyright 2014 Nikolay Orliuk
-# Copyright 2015-2016 Volodymyr Medvid
+# Copyright 2015-2019 Volodymyr Medvid
 # Distributed under the terms of the GNU General Public License v2
 
 require alternatives github [ user=neovim tag=v${PV} ]
@@ -23,10 +23,12 @@ MYOPTIONS="
 "
 
 DEPENDENCIES="
+    build:
+        dev-util/gperf
     build+run:
         dev-lang/LuaJIT
-        dev-libs/libtermkey
-        dev-libs/libuv[>=1.2.0]
+        dev-libs/libtermkey[>=0.18]
+        dev-libs/libuv[>=1.23.2]
         dev-libs/msgpack
         dev-libs/unibilium
         dev-lua/libmpack[lua_abis:5.1]
