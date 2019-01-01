@@ -30,7 +30,7 @@ DEPENDENCIES="
         dev-libs/libtermkey[>=0.18]
         dev-libs/libuv[>=1.23.2]
         dev-libs/msgpack
-        dev-libs/unibilium
+        dev-libs/unibilium:2
         dev-lua/libmpack[lua_abis:5.1]
         dev-lua/lpeg[lua_abis:5.1]
         dev-lua/LuaBitOp[lua_abis:5.1]
