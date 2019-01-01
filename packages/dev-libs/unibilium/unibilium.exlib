@@ -5,13 +5,15 @@ require github [ user=mauke tag=v${PV} ]
 
 SUMMARY="A terminfo parsing library"
 DESCRIPTION="
-Unibilium is a very basic terminfo library. It doesn't depend on curses or any
-other library. It also doesn't use global variables, so it should be
-thread-safe.
+Unibilium is a very basic terminfo library.
+It can read and write ncurses-style terminfo files,
+and it can interpret terminfo format strings.
+It doesn't depend on curses or any other library.
+It also doesn't use global variables, so it should be thread-safe.
 "
 
 LICENCES="LGPL-3 MIT [[ note = [ tools/*.c ] ]]"
-SLOT="0"
+SLOT="2"
 MYOPTIONS=""
 
 DEPENDENCIES="
