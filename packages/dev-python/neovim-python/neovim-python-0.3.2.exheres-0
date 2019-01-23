@@ -17,9 +17,9 @@ DEPENDENCIES="
         dev-python/msgpack[>=0.5.0][python_abis:*(-)?]
         python_abis:2.7? ( dev-python/trollius[python_abis:2.7] )
     run:
-        app-editors/neovim[>=0.3.1]
+        app-editors/neovim[>=0.3.2]
     test:
-        app-editors/neovim[>=0.3.1]
+        app-editors/neovim[>=0.3.2]
         dev-python/pyuv[python_abis:*(-)?]
 "
 
