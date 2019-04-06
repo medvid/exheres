@@ -1,7 +1,7 @@
 # Copyright 2014 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-PLATFORMS="~amd64 ~armv7 ~x86"
+PLATFORMS="~amd64 ~armv7 ~armv8 ~x86"
 
 require uboot-mkimage
 
