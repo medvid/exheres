@@ -33,8 +33,9 @@ DEPENDENCIES="
         dev-libs/unibilium:2
         dev-lua/libmpack[lua_abis:5.1]
         dev-lua/lpeg[lua_abis:5.1]
+        dev-lua/luv[>=1.30]
         dev-lua/LuaBitOp[lua_abis:5.1]
-        x11-libs/libvterm
+        x11-libs/libvterm[>=0.1]
         jemalloc? ( dev-libs/jemalloc )
     suggestion:
         app-editors/neovim-qt [[ description = [ Qt GUI client ] ]]

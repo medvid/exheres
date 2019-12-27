@@ -1,0 +1,12 @@
+diff -ru a/neovim-0.4.3/src/nvim/terminal.c b/neovim-0.4.3/src/nvim/terminal.c
+--- a/neovim-0.4.3/src/nvim/terminal.c	2019-11-06 10:54:45.000000000 +0100
++++ b/neovim-0.4.3/src/nvim/terminal.c	2019-12-27 13:56:23.962717989 +0100
+@@ -697,7 +697,7 @@
+ 
+     case VTERM_PROP_TITLE: {
+       buf_T *buf = handle_get_buffer(term->buf_handle);
+-      buf_set_term_title(buf, val->string);
++      buf_set_term_title(buf, val->string.str);
+       break;
+     }
+ 
