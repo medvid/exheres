@@ -18,9 +18,7 @@ vim         [[ note = [ original vim works + upstream vim patches ] ]]
 Apache-2.0  [[ note = [ neovim changes submitted after 24-06-2014 ] ]]
 "
 
-MYOPTIONS="
-    jemalloc
-"
+MYOPTIONS=""
 
 DEPENDENCIES="
     build:
@@ -28,14 +26,14 @@ DEPENDENCIES="
     build+run:
         dev-lang/LuaJIT
         dev-libs/libtermkey[>=0.18]
-        dev-libs/libuv[>=1.23.2]
-        dev-libs/msgpack
+        dev-libs/libuv[>=1.28]
+        dev-libs/msgpack[>=1.0.0]
         dev-libs/unibilium:2
         dev-lua/libmpack[lua_abis:5.1]
         dev-lua/lpeg[lua_abis:5.1]
+        dev-lua/luv[>=1.30]
         dev-lua/LuaBitOp[lua_abis:5.1]
-        x11-libs/libvterm
-        jemalloc? ( dev-libs/jemalloc )
+        x11-libs/libvterm[>=0.1]
     suggestion:
         app-editors/neovim-qt [[ description = [ Qt GUI client ] ]]
         dev-python/neovim-python [[ description = [ Python interface ] ]]
@@ -45,10 +43,6 @@ BUGS_TO="vmedvid@riseup.net"
 
 CMAKE_SRC_CONFIGURE_PARAMS+=(
     -DCMAKE_BUILD_TYPE=RelWithDebInfo
-)
-
-CMAKE_SRC_CONFIGURE_OPTION_ENABLES+=(
-    'jemalloc JEMALLOC'
 )
 
 src_prepare() {
