@@ -23,6 +23,8 @@ MYOPTIONS=""
 DEPENDENCIES="
     build:
         dev-util/gperf
+        sys-devel/gettext
+        virtual/pkg-config
     build+run:
         dev-lang/LuaJIT
         dev-libs/libtermkey[>=0.18]
