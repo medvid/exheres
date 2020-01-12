@@ -6,3 +6,8 @@ require neovim
 SLOT="0"
 PLATFORMS="~amd64"
 
+DEPENDENCIES+="
+    build+run:
+        dev-libs/utf8proc
+"
+
