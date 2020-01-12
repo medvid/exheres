@@ -12,6 +12,8 @@ PLATFORMS="~amd64"
 MYOPTIONS=""
 
 DEPENDENCIES="
+    build+test:
+        dev-python/pytest-runner
     build+run:
         dev-python/greenlet[python_abis:*(-)?]
         dev-python/msgpack[>=0.5.0][python_abis:*(-)?]
@@ -20,7 +22,7 @@ DEPENDENCIES="
         app-editors/neovim[>=0.3.2]
     test:
         app-editors/neovim[>=0.3.2]
-        dev-python/pyuv[python_abis:*(-)?]
+        dev-python/pyuv[>=1.0.0][python_abis:*(-)?]
 "
 
 test_one_multibuild() {
