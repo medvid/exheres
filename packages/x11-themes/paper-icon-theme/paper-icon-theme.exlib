@@ -1,13 +1,12 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
+# Copyright 2020 Danilo Spinella <danyspin97@protonmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=snwh tag=v${PV} ] gtk-icon-cache
+require github [ user=snwh tag=v.${PV} ] gtk-icon-cache meson
 
-export_exlib_phases src_install
+SUMMARY="Paper is a modern icon theme inspired by Google's material design"
 
-SUMMARY="Paper is simple and modern icon theme inspired by Google's material design"
-
-LICENCES="CCPL-Attribution-ShareAlike-3.0"
+LICENCES="CCPL-Attribution-ShareAlike-4.0"
 SLOT="0"
 MYOPTIONS=""
 
@@ -16,10 +15,4 @@ DEPENDENCIES="
         gnome-desktop/adwaita-icon-theme
         x11-themes/hicolor-icon-theme
 "
-
-paper-icon-theme_src_install() {
-    insinto /usr/share/icons
-    doins -r Paper
-}
-
 
