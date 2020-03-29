@@ -1,9 +1,10 @@
 # Copyright 2015 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=equalsraf tag=v${PV} ] cmake [ api=2 ] freedesktop-desktop
+require github [ user=equalsraf tag=v${PV} ] cmake
+require freedesktop-desktop gtk-icon-cache
 
-export_exlib_phases src_test
+export_exlib_phases src_test pkg_postinst pkg_postrm
 
 SUMMARY="Qt5 library and tools for interacting with Neovim."
 
@@ -16,7 +17,7 @@ DEPENDENCIES="
         app-doc/doxygen
         dev-lang/python:*
     build+run:
-        dev-libs/msgpack
+        dev-libs/msgpack[>=3.2.0]
         x11-libs/qtbase:5[gui]
     run:
         app-editors/neovim
@@ -40,5 +41,15 @@ neovim-qt_src_test() {
     esandbox disallow_net --connect "inet:127.0.0.1@1024-65535"
     esandbox disallow_net --connect "unix-abstract:/tmp/.X11-unix/X0"
     esandbox disallow_net --connect "unix:${TEMP%/}/**"
+}
+
+neovim-qt_pkg_postinst() {
+    freedesktop-desktop_pkg_postinst
+    gtk-icon-cache_pkg_postinst
+}
+
+neovim-qt_pkg_postrm() {
+    freedesktop-desktop_pkg_postrm
+    gtk-icon-cache_pkg_postrm
 }
 

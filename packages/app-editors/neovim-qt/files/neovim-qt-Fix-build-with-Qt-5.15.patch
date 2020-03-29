@@ -1,0 +1,26 @@
+Upstream: under review, https://github.com/equalsraf/neovim-qt/pull/666
+
+From b8b74bbdca6bf887ce8b49275f15d9e4c5d58bf4 Mon Sep 17 00:00:00 2001
+From: Heiko Becker <heirecka@exherbo.org>
+Date: Mon, 30 Mar 2020 00:29:54 +0200
+Subject: [PATCH] Fix build with Qt 5.15
+
+QPainterPath is no longer included via qtransform.h (since
+5.15.0-beta2, 50d2acdc93b4de2ba56eb67787e2bdcb21dd4bea in qtbase.git).
+---
+ src/gui/shellwidget/shellwidget.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/gui/shellwidget/shellwidget.cpp b/src/gui/shellwidget/shellwidget.cpp
+index 74b6c79..d8918dc 100644
+--- a/src/gui/shellwidget/shellwidget.cpp
++++ b/src/gui/shellwidget/shellwidget.cpp
+@@ -1,4 +1,5 @@
+ #include <QPainter>
++#include <QPainterPath>
+ #include <QPaintEvent>
+ #include <QDebug>
+ #include "shellwidget.h"
+-- 
+2.26.0
+
