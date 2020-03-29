@@ -1,0 +1,60 @@
+Upstream: yes
+Reason: Fix build with gcc10
+
+From 823b2104c3e579e8c3db8baab263dca0aa9d48bc Mon Sep 17 00:00:00 2001
+From: Andreas Schneider <asn@cryptomilk.org>
+Date: Mon, 17 Feb 2020 17:29:12 +0100
+Subject: [PATCH] nvim: Correctly setup global channels
+
+As gcc10 uses -fno-common by default, global variables declared with the
+same name more than once is not allowed anymore revealing this issue.
+
+We need to define it as extern to access it.
+
+See also https://bugzilla.redhat.com/show_bug.cgi?id=1799680
+---
+ src/nvim/channel.c | 1 -
+ src/nvim/channel.h | 2 +-
+ src/nvim/main.c    | 1 +
+ 3 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/nvim/channel.c b/src/nvim/channel.c
+index c66a0682e..5eb29a729 100644
+--- a/src/nvim/channel.c
++++ b/src/nvim/channel.c
+@@ -19,7 +19,6 @@
+ #include "nvim/ascii.h"
+ 
+ static bool did_stdio = false;
+-PMap(uint64_t) *channels = NULL;
+ 
+ /// next free id for a job or rpc channel
+ /// 1 is reserved for stdio channel
+diff --git a/src/nvim/channel.h b/src/nvim/channel.h
+index c733e276b..9d26852ce 100644
+--- a/src/nvim/channel.h
++++ b/src/nvim/channel.h
+@@ -85,7 +85,7 @@ struct Channel {
+   bool callback_scheduled;
+ };
+ 
+-EXTERN PMap(uint64_t) *channels;
++EXTERN PMap(uint64_t) *channels INIT(= NULL);
+ 
+ #ifdef INCLUDE_GENERATED_DECLARATIONS
+ # include "channel.h.generated.h"
+diff --git a/src/nvim/main.c b/src/nvim/main.c
+index 56d9030a7..4a9f2371a 100644
+--- a/src/nvim/main.c
++++ b/src/nvim/main.c
+@@ -10,6 +10,7 @@
+ #include <msgpack.h>
+ 
+ #include "nvim/ascii.h"
++#include "nvim/channel.h"
+ #include "nvim/vim.h"
+ #include "nvim/main.h"
+ #include "nvim/aucmd.h"
+-- 
+2.26.0
+
