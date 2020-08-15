@@ -11,6 +11,9 @@ SLOT="0"
 PLATFORMS="~amd64"
 MYOPTIONS=""
 
+# test_invalid_utf8 hangs
+RESTRICT="test"
+
 DEPENDENCIES="
     build+test:
         dev-python/pytest-runner
