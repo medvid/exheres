@@ -1,6 +1,7 @@
 # Copyright 2016 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
+# Last checked: b071351f559f6018c9f42fc8aafb8b0145d9f30a
 require gxkb
 
 PLATFORMS="~amd64"

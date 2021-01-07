@@ -23,8 +23,8 @@ DEPENDENCIES="
         virtual/pkg-config[>=0.20]
     build+run:
         dev-libs/glib:2[>=2.16.0]
-        gnome-desktop/libwnck:1[>=2.22.0]
-        x11-libs/gtk+:2[>=2.12.0]
+        gnome-desktop/libwnck:3.0
+        x11-libs/gtk+:3
         x11-libs/libxklavier[>=3.0]
 "
 
