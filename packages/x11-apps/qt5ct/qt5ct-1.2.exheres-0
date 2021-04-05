@@ -1,7 +1,7 @@
 # Copyright 2016 Volodymyr Medvid <vmedvid@riseup.net>
 # Distributed under the terms of the GNU General Public License v2
 
-require qmake [ slot=5 ] sourceforge
+require cmake sourceforge
 
 SUMMARY="Qt5 Configuration Tool"
 DESCRIPTION="
@@ -16,14 +16,8 @@ MYOPTIONS=""
 
 DEPENDENCIES="
     build:
-        x11-libs/qttools[>=5.4.0]
+        x11-libs/qttools[>=5.12.0]
     build+run:
-        x11-libs/qtbase[>=5.4.0]
-        x11-libs/qtsvg[>=5.4.0]
+        x11-libs/qtbase[gui][>=5.12.0]
 "
-
-EQMAKE_PARAMS=(
-    PREFIX="/usr/$(exhost --target)"
-    DATADIR="/usr/share"
-)
 
